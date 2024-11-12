@@ -1,0 +1,373 @@
+@prefix ext: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>
+
+<http://mu.semte.ch/vocabularies/ext/projects/f5fb8bd8-4d17-4dbd-94ba-a1e4c8626d0c>
+    a doap:Project ;
+    mu:uuid "f5fb8bd8-4d17-4dbd-94ba-a1e4c8626d0c" ;
+    rdfs:label "Loket" ;
+    ext:color "#6366f1" .
+
+<http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d>
+    a doap:Project ;
+    mu:uuid "6556c57b-ef0e-49d6-a72b-b26bc465091d" ;
+    rdfs:label "Kaleidos" ;
+    ext:color "#22C55E" .
+
+<http://mu.semte.ch/vocabularies/ext/projects/1ba4b10e-d8fe-4b77-90e1-7f62d2de381d>
+    a doap:Project ;
+    mu:uuid "1ba4b10e-d8fe-4b77-90e1-7f62d2de381d" ;
+    rdfs:label "GN" ;
+    ext:color "#EF4444" .
+
+<http://mu.semte.ch/vocabularies/ext/projects/420ad7d2-67cf-417c-b50d-7ee651de4cf7>
+    a doap:Project ;
+    mu:uuid "420ad7d2-67cf-417c-b50d-7ee651de4cf7" ;
+    rdfs:label "Nove" ;
+    ext:color "#EAB308" .
+
+<http://mu.semte.ch/vocabularies/ext/projects/f040a16e-8fde-45bc-b7c4-23f1146e3d51>
+    a doap:Project ;
+    mu:uuid "f040a16e-8fde-45bc-b7c4-23f1146e3d51" ;
+    rdfs:label "Out of Office" ;
+    ext:color "#94a3b8" .
+
+<http://mu.semte.ch/vocabularies/ext/projects/b79c630c-90c0-4eac-93c0-fdbc71740480>
+    a doap:Project ;
+    mu:uuid "b79c630c-90c0-4eac-93c0-fdbc71740480" ;
+    rdfs:label "Say Editor" ;
+    ext:parent <http://mu.semte.ch/vocabularies/ext/projects/1ba4b10e-d8fe-4b77-90e1-7f62d2de381d> .
+
+<http://mu.semte.ch/vocabularies/ext/projects/fa67c1e8-6522-422b-b4dd-918e0f6d785d>
+    a doap:Project ;
+    mu:uuid "fa67c1e8-6522-422b-b4dd-918e0f6d785d" ;
+    rdfs:label "Digitaal Tekenen" ;
+    ext:parent <http://mu.semte.ch/vocabularies/ext/projects/1ba4b10e-d8fe-4b77-90e1-7f62d2de381d> .
+
+<http://mu.semte.ch/vocabularies/ext/projects/5ba59dd6-5029-432f-bc3b-b9c93e82b6fa>
+    a doap:Project ;
+    mu:uuid "5ba59dd6-5029-432f-bc3b-b9c93e82b6fa" ;
+    rdfs:label "Digitaal Tekenen" ;
+    ext:parent <http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d> .
+
+<http://mu.semte.ch/vocabularies/ext/projects/a1a8e31e-a79b-4aa9-881e-7eaf379933c9>
+    a doap:Project ;
+    mu:uuid "a1a8e31e-a79b-4aa9-881e-7eaf379933c9" ;
+    rdfs:label "Sick Leave" ;
+    ext:parent <http://mu.semte.ch/vocabularies/ext/projects/f040a16e-8fde-45bc-b7c4-23f1146e3d51> .
+
+<http://mu.semte.ch/vocabularies/ext/projects/f2b0cc70-a727-4318-ba57-6264fdd1d978>
+    a doap:Project ;
+    mu:uuid "f2b0cc70-a727-4318-ba57-6264fdd1d978" ;
+    rdfs:label "Holiday" ;
+    ext:parent <http://mu.semte.ch/vocabularies/ext/projects/f040a16e-8fde-45bc-b7c4-23f1146e3d51> .
+
+<http://mu.semte.ch/vocabularies/ext/projects/488dc6e3-101f-4166-aac9-44969ebd1c25>
+    a doap:Project ;
+    mu:uuid "488dc6e3-101f-4166-aac9-44969ebd1c25" ;
+    rdfs:label "Vlaams Parlement" ;
+    ext:parent <http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d> .
+
+# TODO: Use dct:subject instead of prov:used
+<http://mu.semte.ch/vocabularies/ext/time-logs/0bf38bbf-5d22-40d3-ae0c-9bdcd11e1d7e>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """0bf38bbf-5d22-40d3-ae0c-9bdcd11e1d7e""" ;
+    schema:duration """PTH1""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/fa67c1e8-6522-422b-b4dd-918e0f6d785d> ;
+    dct:date "2024-09-02"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/76590e87-5136-43fa-a4ab-72ffd58d8b9b>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """76590e87-5136-43fa-a4ab-72ffd58d8b9b""" ;
+    schema:duration """PTH7""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d> ;
+    dct:date "2024-09-02"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/fd617a8d-7090-4a72-a5b4-3682c463c008>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """fd617a8d-7090-4a72-a5b4-3682c463c008""" ;
+    schema:duration """PTH8""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d> ;
+    dct:date "2024-09-03"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/0656a3ed-5268-4198-a2dc-6cd71e1dc79b>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """0656a3ed-5268-4198-a2dc-6cd71e1dc79b""" ;
+    schema:duration """PTH4""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/420ad7d2-67cf-417c-b50d-7ee651de4cf7> ;
+    dct:date "2024-09-04"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/b57292de-bfb4-4181-83b0-b0890780d67f>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """b57292de-bfb4-4181-83b0-b0890780d67f""" ;
+    schema:duration """PTH4""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d> ;
+    dct:date "2024-09-04"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/ac88a46b-0922-45f6-8261-d37d75330f40>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """ac88a46b-0922-45f6-8261-d37d75330f40""" ;
+    schema:duration """PTH8""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f5fb8bd8-4d17-4dbd-94ba-a1e4c8626d0c> ;
+    dct:date "2024-09-05"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/d7aad000-c7ed-49e0-bed6-31ca0927ba42>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """d7aad000-c7ed-49e0-bed6-31ca0927ba42""" ;
+    schema:duration """PTH2""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f5fb8bd8-4d17-4dbd-94ba-a1e4c8626d0c> ;
+    dct:date "2024-09-06"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/fed3f3ab-24ad-4a03-95bd-55db778e1371>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """fed3f3ab-24ad-4a03-95bd-55db778e1371""" ;
+    schema:duration """PTH2""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d> ;
+    dct:date "2024-09-05"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/19b9ee5c-a773-475c-b2b4-076679e7b06f>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """19b9ee5c-a773-475c-b2b4-076679e7b06f""" ;
+    schema:duration """PTH4""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/420ad7d2-67cf-417c-b50d-7ee651de4cf7> ;
+    dct:date "2024-09-05"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/bbcb02e3-973d-4f88-99d3-0084e5d936ef>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """bbcb02e3-973d-4f88-99d3-0084e5d936ef""" ;
+    schema:duration """PTH1""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/b79c630c-90c0-4eac-93c0-fdbc71740480> ;
+    dct:date "2024-09-05"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/f3839392-de09-458d-9bba-0bfff74cef9c>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """f3839392-de09-458d-9bba-0bfff74cef9c""" ;
+    schema:duration """PTH1""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f5fb8bd8-4d17-4dbd-94ba-a1e4c8626d0c> ;
+    dct:date "2024-09-13"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/12437272-49b9-4503-ac0a-b05aa4c2ba13>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """12437272-49b9-4503-ac0a-b05aa4c2ba13""" ;
+    schema:duration """PTH7""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d> ;
+    dct:date "2024-09-13"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/b07066fe-cf95-434e-996c-e8b38bd7fbf1>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """b07066fe-cf95-434e-996c-e8b38bd7fbf1""" ;
+    schema:duration """PTH8""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/a1a8e31e-a79b-4aa9-881e-7eaf379933c9> ;
+    dct:date "2024-09-12"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/63f7b0ad-3393-40db-9fdd-1cf51335be9d>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """63f7b0ad-3393-40db-9fdd-1cf51335be9d""" ;
+    schema:duration """PTH4""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/420ad7d2-67cf-417c-b50d-7ee651de4cf7> ;
+    dct:date "2024-09-11"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/4188786f-a504-49be-b760-48442b1a1731>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """4188786f-a504-49be-b760-48442b1a1731""" ;
+    schema:duration """PTH4""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d> ;
+    dct:date "2024-09-11"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/cad7b95d-b81f-43fa-a74d-bf37a2d83f05>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """cad7b95d-b81f-43fa-a74d-bf37a2d83f05""" ;
+    schema:duration """PTH8""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f5fb8bd8-4d17-4dbd-94ba-a1e4c8626d0c> ;
+    dct:date "2024-09-10"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/287f3a7c-7a33-4c6b-8b96-f967151d0982>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """287f3a7c-7a33-4c6b-8b96-f967151d0982""" ;
+    schema:duration """PTH2""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f5fb8bd8-4d17-4dbd-94ba-a1e4c8626d0c> ;
+    dct:date "2024-09-09"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/1f6396cd-3de3-4001-a9c6-57c98e6cb47a>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """1f6396cd-3de3-4001-a9c6-57c98e6cb47a""" ;
+    schema:duration """PTH2""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/488dc6e3-101f-4166-aac9-44969ebd1c25> ;
+    dct:date "2024-09-09"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/b9aee0f6-927c-4daf-95e7-e4689e55266c>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """b9aee0f6-927c-4daf-95e7-e4689e55266c""" ;
+    schema:duration """PTH4""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/420ad7d2-67cf-417c-b50d-7ee651de4cf7> ;
+    dct:date "2024-09-09"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/241f4e2e-99d4-4275-85e8-c9b0ce0bc66e>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """241f4e2e-99d4-4275-85e8-c9b0ce0bc66e""" ;
+    schema:duration """PTH1""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/b79c630c-90c0-4eac-93c0-fdbc71740480> ;
+    dct:date "2024-09-09"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/dc789f73-6d30-455b-b0c8-040e2b95d98c>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """dc789f73-6d30-455b-b0c8-040e2b95d98c""" ;
+    schema:duration """PTH8""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f2b0cc70-a727-4318-ba57-6264fdd1d978> ;
+    dct:date "2024-09-16"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/b3e42d7f-bf78-4a25-8088-5a8393a287b9>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """b3e42d7f-bf78-4a25-8088-5a8393a287b9""" ;
+    schema:duration """PTH8""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f2b0cc70-a727-4318-ba57-6264fdd1d978> ;
+    dct:date "2024-09-17"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/fa58e88e-c6cd-4ace-b908-a0cce940d354>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """fa58e88e-c6cd-4ace-b908-a0cce940d354""" ;
+    schema:duration """PTH8""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f2b0cc70-a727-4318-ba57-6264fdd1d978> ;
+    dct:date "2024-09-18"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/95619607-09f7-48d4-a94e-b9a8418530dc>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """95619607-09f7-48d4-a94e-b9a8418530dc""" ;
+    schema:duration """PTH8""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f2b0cc70-a727-4318-ba57-6264fdd1d978> ;
+    dct:date "2024-09-19"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/5b28ee5a-4411-441b-9c51-62fa0c299137>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """5b28ee5a-4411-441b-9c51-62fa0c299137""" ;
+    schema:duration """PTH8""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f2b0cc70-a727-4318-ba57-6264fdd1d978> ;
+    dct:date "2024-09-20"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/0b8c4e3d-5928-4bb8-9742-0cb18811298a>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """0b8c4e3d-5928-4bb8-9742-0cb18811298a""" ;
+    schema:duration """PTH1""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/fa67c1e8-6522-422b-b4dd-918e0f6d785d> ;
+    dct:date "2024-09-23"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/31c8181e-0e70-4fc0-bcaf-6cc9c541b985>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """31c8181e-0e70-4fc0-bcaf-6cc9c541b985""" ;
+    schema:duration """PTH7""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d> ;
+    dct:date "2024-09-23"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/4bac6e5b-4884-4413-a404-a4f6b987c8a3>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """4bac6e5b-4884-4413-a404-a4f6b987c8a3""" ;
+    schema:duration """PTH8""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/5ba59dd6-5029-432f-bc3b-b9c93e82b6fa> ;
+    dct:date "2024-09-24"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/855e789d-4f70-406f-9c80-e7b96e11761d>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """855e789d-4f70-406f-9c80-e7b96e11761d""" ;
+    schema:duration """PTH4""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/420ad7d2-67cf-417c-b50d-7ee651de4cf7> ;
+    dct:date "2024-09-25"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/d454f19c-6324-42f1-8604-08525b782771>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """d454f19c-6324-42f1-8604-08525b782771""" ;
+    schema:duration """PTH4""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d> ;
+    dct:date "2024-09-25"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/727212f7-08ba-4af4-8a28-07b87f663155>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """727212f7-08ba-4af4-8a28-07b87f663155""" ;
+    schema:duration """PTH8""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f5fb8bd8-4d17-4dbd-94ba-a1e4c8626d0c> ;
+    dct:date "2024-09-26"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/65ec4a56-f07c-49dc-8f64-ad19f2359450>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """65ec4a56-f07c-49dc-8f64-ad19f2359450""" ;
+    schema:duration """PTH2""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/f5fb8bd8-4d17-4dbd-94ba-a1e4c8626d0c> ;
+    dct:date "2024-09-27"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/64d74a67-f583-41ba-a844-f7146ef3bca1>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """64d74a67-f583-41ba-a844-f7146ef3bca1""" ;
+    schema:duration """PTH2""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/6556c57b-ef0e-49d6-a72b-b26bc465091d> ;
+    dct:date "2024-09-26"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/84150b4f-a7ad-481e-b788-1f4210b2be3c>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """84150b4f-a7ad-481e-b788-1f4210b2be3c""" ;
+    schema:duration """PTH4""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/420ad7d2-67cf-417c-b50d-7ee651de4cf7> ;
+    dct:date "2024-09-26"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/f3779b48-9192-4df9-a55f-86be9e849398>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """f3779b48-9192-4df9-a55f-86be9e849398""" ;
+    schema:duration """PTH1""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/b79c630c-90c0-4eac-93c0-fdbc71740480> ;
+    dct:date "2024-09-26"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/4a7abf74-b142-45ed-ad2f-c948ffaa6f65>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """4a7abf74-b142-45ed-ad2f-c948ffaa6f65""" ;
+    schema:duration """PTH4""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/5ba59dd6-5029-432f-bc3b-b9c93e82b6fa> ;
+    dct:date "2024-09-30"^^xsd:date .
+
+<http://mu.semte.ch/vocabularies/ext/time-logs/fc16bf07-2f10-4647-8558-f9830604c481>
+    a prov:Activity ;
+    a ext:TimeLog ;
+    mu:uuid """fc16bf07-2f10-4647-8558-f9830604c481""" ;
+    schema:duration """PTH4""" ;
+    prov:used <http://mu.semte.ch/vocabularies/ext/projects/b79c630c-90c0-4eac-93c0-fdbc71740480> ;
+    dct:date "2024-09-30"^^xsd:date .

@@ -1,7 +1,63 @@
 {
   "version": "0.1",
   "prefixes": {
+    "ext": "http://mu.semte.ch/vocabularies/ext/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "time": "http://www.w3.org/2006/time#",
+    "dc": "http://purl.org/dc/elements/1.1/"
   },
   "resources": {
+    "projects": {
+      "name": "project",
+      "class": "doap:Project",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "rdfs:label"
+        },
+        "color": {
+          "type": "string",
+          "predicate": "ext:color"
+        }
+      },
+      "relationships": {
+        "time-logs": {
+          "predicate": "prov:wasAssociatedWith",
+          "inverse": true,
+          "target": "time-log",
+          "cardinality": "many"
+        },
+        "parent": {
+          "predicate": "ext:parent",
+          "target": "project",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://mu.semte.ch/vocabularies/ext/projects/"
+    },
+    "time-logs": {
+      "name": "time-log",
+      "class": "ext:TimeLog",
+      "attributes": {
+        "hours": {
+          "type": "string",
+          "predicate": "schema:duration"
+        },
+        "date": {
+          "type": "date",
+          "predicate": "dc:date"
+        }
+      },
+      "relationships": {
+        "project": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "project",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://mu.semte.ch/vocabularies/ext/time-logs/"
+    }
   }
 }

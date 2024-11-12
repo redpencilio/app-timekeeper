@@ -21,6 +21,14 @@ defmodule Dispatcher do
   # Run `docker-compose restart dispatcher` after updating
   # this file.
 
+  get "/projects/*path", @any do
+    forward conn, path, "http://resource/projects/"
+  end
+
+  get "/time-logs/*path", @any do
+    forward conn, path, "http://resource/time-logs/"
+  end
+
   match "/*_", %{ layer: :not_found } do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
