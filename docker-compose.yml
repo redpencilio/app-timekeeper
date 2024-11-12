@@ -13,14 +13,19 @@ services:
       - "logging=true"
 
   # Your extra services here
-
+  frontend:
+    image: redpencil/frontend-timekeeper:latest
+    links:
+      - identifier:backend
+    restart: always
+    labels:
+      - "logging=true"
   resource:
     image: semtech/mu-cl-resources:1.25.0
     volumes:
       - ./config/resources:/config
     labels:
       - "logging=true"
-
   migrations:
     image: semtech/mu-migrations-service:0.9.0
     links:
