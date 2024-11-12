@@ -25,8 +25,16 @@ defmodule Dispatcher do
     forward conn, path, "http://resource/projects/"
   end
 
-  get "/time-logs/*path", @any do
-    forward conn, path, "http://resource/time-logs/"
+  get "/sub-projects/*path", @any do
+    forward conn, path, "http://resource/sub-projects/"
+  end
+
+  get "/work-logs/*path", @any do
+    forward conn, path, "http://resource/work-logs/"
+  end
+
+  get "/customers/*path", @any do
+    forward conn, path, "http://resource/customers/"
   end
 
   match "/*_", %{ layer: :not_found } do

@@ -3,12 +3,32 @@
   "prefixes": {
     "ext": "http://mu.semte.ch/vocabularies/ext/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "mu": "http://mu.semte.ch/vocabularies/core/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "doap": "http://usefulinc.com/ns/doap#",
     "prov": "http://www.w3.org/ns/prov#",
     "time": "http://www.w3.org/2006/time#",
-    "dc": "http://purl.org/dc/elements/1.1/"
+    "dct": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ui": "http://www.w3.org/ns/ui#"
   },
   "resources": {
+    "customers": {
+      "name": "customer",
+      "class": "foaf:Organization",
+      "attributes": {
+        "label": {
+          "type": "string",
+          "predicate": "rdfs:label"
+        },
+        "color": {
+          "type": "string",
+          "predicate": "ui:color"
+        }
+      },
+      "new-resource-base": "http://redpencil.io/timekeeper/customers/"
+    },
     "projects": {
       "name": "project",
       "class": "doap:Project",
@@ -19,45 +39,68 @@
         },
         "color": {
           "type": "string",
-          "predicate": "ext:color"
+          "predicate": "ui:color"
         }
       },
       "relationships": {
-        "time-logs": {
-          "predicate": "prov:wasAssociatedWith",
+        "work-logs": {
+          "predicate": "dct:subject",
           "inverse": true,
-          "target": "time-log",
+          "target": "work-log",
           "cardinality": "many"
         },
+        "customer": {
+          "predicate": "schema:customer",
+          "target": "customer",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://redpencil.io/timekeeper/projects/"
+    },
+    "sub-projects": {
+      "name": "sub-project",
+      "class": "ext:SubProject",
+      "attributes": {
+        "name": {
+          "predicate": "rdfs:label",
+          "type": "string"
+        }
+      },
+      "relationships": {
         "parent": {
           "predicate": "ext:parent",
           "target": "project",
           "cardinality": "one"
         }
       },
-      "new-resource-base": "http://mu.semte.ch/vocabularies/ext/projects/"
+      "new-resource-base": "http://redpencil.io/timekeeper/sub-projects"
     },
-    "time-logs": {
-      "name": "time-log",
-      "class": "ext:TimeLog",
+    "work-logs": {
+      "name": "work-log",
+      "class": "ext:WorkLog",
       "attributes": {
-        "hours": {
+        "duration": {
           "type": "string",
           "predicate": "schema:duration"
         },
         "date": {
           "type": "date",
-          "predicate": "dc:date"
+          "predicate": "dct:date"
         }
       },
       "relationships": {
         "project": {
-          "predicate": "prov:wasAssociatedWith",
+          "predicate": "dct:subject",
           "target": "project",
+          "cardinality": "one"
+        },
+        "worker": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "person",
           "cardinality": "one"
         }
       },
-      "new-resource-base": "http://mu.semte.ch/vocabularies/ext/time-logs/"
+      "new-resource-base": "http://redpencil.io/timekeeper/work-logs/"
     }
   }
 }
