@@ -5,33 +5,18 @@
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "mu": "http://mu.semte.ch/vocabularies/core/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "doap": "http://usefulinc.com/ns/doap#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wf": "http://www.w3.org/2005/01/wf/flow#",
+    "cal": "http://www.w3.org/2002/12/cal/ical#",
     "prov": "http://www.w3.org/ns/prov#",
-    "time": "http://www.w3.org/2006/time#",
     "dct": "http://purl.org/dc/terms/",
-    "schema": "http://schema.org/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "ui": "http://www.w3.org/ns/ui#"
   },
   "resources": {
     "customers": {
       "name": "customer",
-      "class": "foaf:Organization",
-      "attributes": {
-        "label": {
-          "type": "string",
-          "predicate": "rdfs:label"
-        },
-        "color": {
-          "type": "string",
-          "predicate": "ui:color"
-        }
-      },
-      "new-resource-base": "http://redpencil.io/timekeeper/customers/"
-    },
-    "projects": {
-      "name": "project",
-      "class": "doap:Project",
+      "class": "prov:Organization",
       "attributes": {
         "name": {
           "type": "string",
@@ -43,6 +28,53 @@
         }
       },
       "relationships": {
+        "projects": {
+          "predicate": "prov:wasAttributedTo",
+          "inverse": true,
+          "target": "task",
+          "cardinality": "many"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://timekeeper.redpencil.io/customers/"
+    },
+    "tasks": {
+      "name": "task",
+      "class": "wf:Task",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "rdfs:label"
+        },
+        "color": {
+          "type": "string",
+          "predicate": "ui:color"
+        }
+      },
+      "relationships": {
+        "concept-scheme": {
+          "predicate": "skos:inScheme",
+          "target": "workspace",
+          "cardinality": "one"
+        },
+        "workspace": {
+          "predicate": "skos:topConceptOf"
+          "target": "workspace",
+          "cardinality": "one"
+        },
+        "parent": {
+          "predicate": "skos:broader",
+          "target": "task",
+          "cardinality": "one"
+        },
+        "children": {
+          "predicate": "skos:broader",
+          "inverse": true,
+          "target": "task",
+          "cardinality": "many"
+        },
         "work-logs": {
           "predicate": "dct:subject",
           "inverse": true,
@@ -50,16 +82,19 @@
           "cardinality": "many"
         },
         "customer": {
-          "predicate": "schema:customer",
+          "predicate": "prov:wasAttributedTo",
           "target": "customer",
           "cardinality": "one"
         }
       },
-      "new-resource-base": "http://redpencil.io/timekeeper/projects/"
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://timekeeper.redpencil.io/tasks/"
     },
-    "sub-projects": {
-      "name": "sub-project",
-      "class": "ext:SubProject",
+    "workspaces": {
+      "name": "workspace",
+      "class": "skos:ConceptScheme",
       "attributes": {
         "name": {
           "predicate": "rdfs:label",
@@ -67,40 +102,106 @@
         }
       },
       "relationships": {
-        "parent": {
-          "predicate": "ext:parent",
-          "target": "project",
-          "cardinality": "one"
+        "tasks": {
+          "predicate": "skos:inScheme",
+          "inverse": true,
+          "target": "task",
+          "cardinality": "many"
+        },
+        "projects": {
+          "predicate": "skos:topConceptOf",
+          "inverse": true,
+          "target": "task",
+          "cardinality": "many"
         }
       },
-      "new-resource-base": "http://redpencil.io/timekeeper/sub-projects"
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://timekeeper.redpencil.io/workspaces/"
     },
     "work-logs": {
       "name": "work-log",
-      "class": "ext:WorkLog",
+      "class": "cal:Vevent",
       "attributes": {
         "duration": {
           "type": "string",
-          "predicate": "schema:duration"
+          "predicate": "cal:duration"
         },
         "date": {
           "type": "date",
-          "predicate": "dct:date"
+          "predicate": "cal:dtstart"
         }
       },
       "relationships": {
-        "project": {
+        "task": {
           "predicate": "dct:subject",
-          "target": "project",
+          "target": "task",
           "cardinality": "one"
         },
-        "worker": {
+        "person": {
           "predicate": "prov:wasAssociatedWith",
           "target": "person",
           "cardinality": "one"
         }
       },
-      "new-resource-base": "http://redpencil.io/timekeeper/work-logs/"
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://timekeeper.redpencil.io/work-logs/"
+    },
+    "persons": {
+      "name": "person",
+      "class": "foaf:Person",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "foaf:name"
+        }
+      },
+      "relationships": {
+        "account": {
+          "predicate": "foaf:account",
+          "target": "account",
+          "cardinality": "many"
+        },
+        "work-logs": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "work-log",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://timekeeper.redpencil.io/persons/"
+    },
+    "accounts": {
+      "name": "account",
+      "class": "foaf:OnlineAccount",
+      "attributes": {
+        "account-name": {
+          "type": "string",
+          "predicate": "foaf:accountName"
+        },
+        "account-service-url": {
+          "type": "string",
+          "predicate": "foaf:accountServiceHomepage"
+        }
+      },
+      "relationships": {
+        "person": {
+          "predicate": "foaf:account",
+          "target": "person",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://timekeeper.redpencil.io/accounts/",
     }
   }
 }

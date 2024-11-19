@@ -39,20 +39,28 @@ defmodule Dispatcher do
   ###############
   # API SERVICES
   ###############
-  get "/projects/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/projects/"
+  get "/customers/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://resource/customers/"
   end
 
-  get "/sub-projects/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/sub-projects/"
+  get "/tasks/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://resource/tasks/"
   end
 
-  get "/work-logs/*path", %{ layer: :services, accept: %{ json: true } } do
+  get "/workspaces/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://resource/workspaces/"
+  end
+
+  match "/work-logs/*path", %{ layer: :services, accept: %{ json: true } } do
     forward conn, path, "http://resource/work-logs/"
   end
 
-  get "/customers/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/customers/"
+  get "/persons/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://resource/persons/"
+  end
+
+  get "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://resource/accounts/"
   end
 
   match "/*_", %{ layer: :not_found } do
