@@ -18,7 +18,7 @@
       "name": "customer",
       "class": "foaf:Organization",
       "attributes": {
-        "label": {
+        "name": {
           "type": "string",
           "predicate": "rdfs:label"
         },
@@ -43,16 +43,16 @@
         }
       },
       "relationships": {
-        "work-logs": {
-          "predicate": "dct:subject",
-          "inverse": true,
-          "target": "work-log",
-          "cardinality": "many"
-        },
         "customer": {
           "predicate": "schema:customer",
           "target": "customer",
           "cardinality": "one"
+        },
+        "sub-projects": {
+          "target": "sub-project",
+          "predicate": "dct:isPartOf",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "new-resource-base": "http://redpencil.io/timekeeper/projects/"
@@ -67,8 +67,14 @@
         }
       },
       "relationships": {
+        "work-logs": {
+          "predicate": "dct:subject",
+          "inverse": true,
+          "target": "work-log",
+          "cardinality": "many"
+        },
         "parent": {
-          "predicate": "ext:parent",
+          "predicate": "dct:isPartOf",
           "target": "project",
           "cardinality": "one"
         }
@@ -89,9 +95,9 @@
         }
       },
       "relationships": {
-        "project": {
+        "sub-project": {
           "predicate": "dct:subject",
-          "target": "project",
+          "target": "sub-project",
           "cardinality": "one"
         },
         "worker": {
