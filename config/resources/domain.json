@@ -60,7 +60,7 @@
           "cardinality": "one"
         },
         "workspace": {
-          "predicate": "skos:topConceptOf"
+          "predicate": "skos:topConceptOf",
           "target": "workspace",
           "cardinality": "one"
         },
