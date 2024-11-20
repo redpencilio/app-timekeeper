@@ -33,12 +33,16 @@
 
 ;; Prefixes used in the constraints below (not in the SPARQL queries)
 (define-prefixes
-  ;; Core
   :mu "http://mu.semte.ch/vocabularies/core/"
   :session "http://mu.semte.ch/vocabularies/session/"
   :ext "http://mu.semte.ch/vocabularies/ext/"
-  ;; Custom prefix URIs here, prefix casing is ignored
-  )
+  :rdfs "http://www.w3.org/2000/01/rdf-schema#"
+  :xsd "http://www.w3.org/2001/XMLSchema#"
+  :skos "http://www.w3.org/2004/02/skos/core#"
+  :wf "http://www.w3.org/2005/01/wf/flow#"
+  :cal "http://www.w3.org/2002/12/cal/ical#"
+  :foaf "http://xmlns.com/foaf/0.1/"
+  :prov "http://www.w3.org/ns/prov#")
 
 
 ;;;;;;;;;
@@ -50,19 +54,17 @@
 ;; specifications can be folded too.  This could help when building
 ;; indexes.
 
-(define-graph public ("http://mu.semte.ch/graphs/public")
-  (_ -> _)) ; public allows ANY TYPE -> ANY PREDICATE in the direction
-            ; of the arrow
+(define-graph timesheet ("http://mu.semte.ch/graphs/redpencil")
+  ("cal:Vevent" -> _)
+  ("foaf:Person" -> _)
+  ("foaf:OnlineAccount" -> _))
 
-;; Example:
-;; (define-graph company ("http://mu.semte.ch/graphs/companies/")
-;;   ("foaf:OnlineAccount"
-;;    -> "foaf:accountName"
-;;    -> "foaf:accountServiceHomepage")
-;;   ("foaf:Group"
-;;    -> "foaf:name"
-;;    -> "foaf:member"))
+(define-graph static ("http://mu.semte.ch/graphs/redpencil")
+  ("skos:ConceptScheme" -> _))
 
+(define-graph kimai ("http://mu.semte.ch/graphs/kimai")
+  ("prov:Organization" -> _)
+  ("wf:Task" -> _))
 
 ;;;;;;;;;;;;;
 ;; User roles
@@ -70,7 +72,11 @@
 (supply-allowed-group "public")
 
 (grant (read write)
-       :to-graph public
+       :to-graph timesheet
+       :for-allowed-group "public")
+
+(grant (read)
+       :to-graph (static kimai)
        :for-allowed-group "public")
 
 ;; example:
