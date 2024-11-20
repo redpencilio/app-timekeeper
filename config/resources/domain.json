@@ -60,7 +60,7 @@
           "cardinality": "one"
         },
         "workspace": {
-          "predicate": "skos:topConceptOf"
+          "predicate": "skos:topConceptOf",
           "target": "workspace",
           "cardinality": "one"
         },
@@ -201,7 +201,7 @@
       "features": [
         "include-uri"
       ],
-      "new-resource-base": "http://timekeeper.redpencil.io/accounts/",
+      "new-resource-base": "http://timekeeper.redpencil.io/accounts/"
     }
   }
 }
