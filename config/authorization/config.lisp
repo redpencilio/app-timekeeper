@@ -64,7 +64,8 @@
 
 (define-graph kimai ("http://mu.semte.ch/graphs/kimai")
   ("prov:Organization" -> _)
-  ("wf:Task" -> _))
+  ("wf:Task" -> _)
+  ("foaf:OnlineAccount" -> _))
 
 ;;;;;;;;;;;;;
 ;; User roles
