@@ -26,6 +26,12 @@ services:
       - ./config/resources:/config
     labels:
       - "logging=true"
+  kimai-sync:
+    image: redpencil/timekeeper-kimai-sync-service:latest
+    environment:
+      API_TOKEN: "your_secret_kimai_api_token_here"
+      KIMAI_ENDPOINT: "https://test.kimai.redpencil.io/api"
+      DEFAULT_MU_AUTH_SCOPE: "http://services.redpencil.io/timekeeper-kimai-sync-service"
   migrations:
     image: semtech/mu-migrations-service:0.9.0
     links:
