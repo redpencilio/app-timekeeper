@@ -64,7 +64,8 @@
 
 (define-graph kimai ("http://mu.semte.ch/graphs/kimai")
   ("prov:Organization" -> _)
-  ("wf:Task" -> _))
+  ("wf:Task" -> _)
+  ("foaf:OnlineAccount" -> _))
 
 ;;;;;;;;;;;;;
 ;; User roles
@@ -78,6 +79,11 @@
 (grant (read)
        :to-graph (static kimai)
        :for-allowed-group "public")
+
+(with-scope "http://services.redpencil.io/timekeeper-kimai-sync-service"
+  (grant (read write)
+    :to-graph (kimai)
+    :for-allowed-group "public"))
 
 ;; example:
 

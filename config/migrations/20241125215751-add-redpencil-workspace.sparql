@@ -1,0 +1,11 @@
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/redpencil> {
+    <http://timekeeper.redpencil.io/workspaces/7530c9c9-4905-4fae-b63f-7a8d29232377> a skos:ConceptScheme ;
+    mu:uuid "7530c9c9-4905-4fae-b63f-7a8d29232377" ;
+    rdfs:label "Redpencil timesheets" .
+  }
+}
