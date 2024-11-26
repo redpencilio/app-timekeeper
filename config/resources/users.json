@@ -1,0 +1,51 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "resources": {
+    "users": {
+      "name": "user",
+      "class": "foaf:Person",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "foaf:name"
+        }
+      },
+      "relationships": {
+        "account": {
+          "predicate": "foaf:account",
+          "target": "account",
+          "cardinality": "one"
+        }
+      },
+      "features": ["include-uri"],
+      "new-resource-base": "http://lblod.data.gift/users/"
+    },
+    "accounts": {
+      "name": "account",
+      "class": "foaf:OnlineAccount",
+      "attributes": {
+        "account-name": {
+          "type": "string",
+          "predicate": "foaf:accountName"
+        },
+        "account-service-url": {
+          "type": "string",
+          "predicate": "foaf:accountServiceHomepage"
+        }
+      },
+      "relationships": {
+        "user": {
+          "predicate": "foaf:account",
+          "target": "user",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": ["include-uri"],
+      "new-resource-base": "http://lblod.data.gift/accounts/"
+    }
+  }
+}
