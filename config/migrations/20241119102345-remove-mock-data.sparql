@@ -1,5 +1,0 @@
-DELETE WHERE {
-  GRAPH <http://mu.semte.ch/graphs/public> {
-    ?s ?p ?o .
-  }
-}
