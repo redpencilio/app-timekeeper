@@ -1,9 +1,0 @@
-DELETE {
-  GRAPH ?g { ?s ?p ?o . }
-} WHERE {
-  GRAPH ?g { ?s ?p ?o . }
-  VALUES ?g {
-    <http://mu.semte.ch/graphs/redpencil>
-    <http://mu.semte.ch/graphs/kimai>
-  }
-}
