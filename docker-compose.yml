@@ -32,6 +32,8 @@ services:
       API_TOKEN: "your_secret_kimai_api_token_here"
       KIMAI_ENDPOINT: "https://test.kimai.redpencil.io/api"
       DEFAULT_MU_AUTH_SCOPE: "http://services.redpencil.io/timekeeper-kimai-sync-service"
+    labels:
+      - "logging=true"
   migrations:
     image: semtech/mu-migrations-service:0.9.0
     links:
