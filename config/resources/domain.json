@@ -4,7 +4,6 @@
     "ext": "http://mu.semte.ch/vocabularies/ext/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "mu": "http://mu.semte.ch/vocabularies/core/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wf": "http://www.w3.org/2005/01/wf/flow#",
     "cal": "http://www.w3.org/2002/12/cal/ical#",
