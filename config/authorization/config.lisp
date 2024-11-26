@@ -67,6 +67,18 @@
   ("wf:Task" -> _)
   ("foaf:OnlineAccount" -> _))
 
+(define-graph users ("http://mu.semte.ch/graphs/users")
+  ("foaf:Person"
+    -> "foaf:name"
+    -> "foaf:account"
+    -> "dct:created"
+    -> "dct:modified")
+  ("foaf:OnlineAccount"
+    -> "foaf:accountName"
+    -> "foaf:accountServiceHomepage"
+    -> "dct:created"
+    -> "dct:modified"))
+
 ;;;;;;;;;;;;;
 ;; User roles
 
@@ -80,10 +92,31 @@
        :to-graph (static kimai)
        :for-allowed-group "public")
 
+(grant (read)
+       :to-graph public
+       :for-allowed-group "public")
+
 (with-scope "http://services.redpencil.io/timekeeper-kimai-sync-service"
   (grant (read write)
     :to-graph (kimai)
     :for-allowed-group "public"))
+
+
+(supply-allowed-group "logged-in"
+  :parameters ()
+  :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
+      PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+      PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+      SELECT ?account WHERE {
+          <SESSION_ID> session:account ?account .
+      } LIMIT 1")
+
+(grant (write)
+       :to-graph public
+       :for-allowed-group "logged-in")
+(grant (read)
+       :to-graph users
+       :for-allowed-group "logged-in")
 
 ;; example:
 

@@ -22,5 +22,5 @@
 ;;   :resource-base (s-url "http://webcat.tmp.semte.ch/datasets/")
 ;;   :on-path "datasets")
 
-;; reading in the domain.json
 (read-domain-file "domain.json")
+(read-domain-file "users.json")
