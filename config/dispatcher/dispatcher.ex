@@ -55,6 +55,10 @@ defmodule Dispatcher do
     forward conn, path, "http://resource/work-logs/"
   end
 
+  match "/timesheets/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://resource/timesheets/"
+  end
+
   get "/persons/*path", %{ layer: :services, accept: %{ json: true } } do
     forward conn, path, "http://resource/persons/"
   end

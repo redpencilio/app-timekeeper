@@ -56,11 +56,13 @@
 
 (define-graph timesheet ("http://mu.semte.ch/graphs/redpencil")
   ("cal:Vevent" -> _)
+  ("skos:Collection" -> _)
   ("foaf:Person" -> _)
   ("foaf:OnlineAccount" -> _))
 
 (define-graph static ("http://mu.semte.ch/graphs/redpencil")
-  ("skos:ConceptScheme" -> _))
+  ("skos:ConceptScheme" -> _)
+  ("skos:Concept" -> _))
 
 (define-graph kimai ("http://mu.semte.ch/graphs/kimai")
   ("prov:Organization" -> _)
