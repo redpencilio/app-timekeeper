@@ -10,7 +10,8 @@
     "prov": "http://www.w3.org/ns/prov#",
     "dct": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
-    "ui": "http://www.w3.org/ns/ui#"
+    "ui": "http://www.w3.org/ns/ui#",
+    "time": "http://www.w3.org/2006/time#",
   },
   "resources": {
     "customers": {
@@ -142,12 +143,48 @@
           "predicate": "prov:wasAssociatedWith",
           "target": "person",
           "cardinality": "one"
+        },
+        "timesheet": {
+          "predicate": "skos:member",
+          "target": "timesheet",
+          "cardinality": "one",
+          "inverse": "true"
         }
       },
       "features": [
         "include-uri"
       ],
       "new-resource-base": "http://timekeeper.redpencil.io/work-logs/"
+    },
+    "timesheets": {
+      "name": "timesheet",
+      "class": "skos:Collection",
+      "_additionalClasses": "time:Interval",
+      "attributes": {
+        "start": {
+          "type": "dateTime",
+          "predicate": "time:hasBeginning"
+        },
+        "end": {
+          "type": "dateTime",
+          "predicate": "time:hasEnd"
+        },
+        "status": {
+          "type": "url",
+          "predicate": "adms:status"
+        }
+      },
+      "relationships": {
+        "work-logs": {
+          "predicate": "skos:member",
+          "target": "work-log",
+          "cardinality": "many"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://timekeeper.redpencil.io/timesheets/"
     },
     "persons": {
       "name": "person",
