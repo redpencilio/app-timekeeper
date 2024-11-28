@@ -8,6 +8,8 @@ defmodule Dispatcher do
 
   define_layers [ :static, :web_page, :services, :fall_back, :not_found ]
 
+  @json %{ accept: %{ json: true } }
+
   # In order to forward the 'themes' resource to the
   # resource service, use the following forward rule:
   #
@@ -61,6 +63,10 @@ defmodule Dispatcher do
 
   get "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
     forward conn, path, "http://resource/accounts/"
+  end
+
+  match "/sessions/*path", @json do
+    Proxy.forward conn, path, "http://login/sessions/"
   end
 
   match "/*_", %{ layer: :not_found } do
