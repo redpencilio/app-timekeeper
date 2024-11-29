@@ -42,6 +42,7 @@
   :wf "http://www.w3.org/2005/01/wf/flow#"
   :cal "http://www.w3.org/2002/12/cal/ical#"
   :foaf "http://xmlns.com/foaf/0.1/"
+  :dct "http://purl.org/dc/terms/"
   :prov "http://www.w3.org/ns/prov#")
 
 
@@ -69,6 +70,18 @@
   ("wf:Task" -> _)
   ("foaf:OnlineAccount" -> _))
 
+(define-graph users ("http://mu.semte.ch/graphs/users")
+  ("foaf:Person"
+    -> "foaf:name"
+    -> "foaf:account"
+    -> "dct:created"
+    -> "dct:modified")
+  ("foaf:OnlineAccount"
+    -> "foaf:accountName"
+    -> "foaf:accountServiceHomepage"
+    -> "dct:created"
+    -> "dct:modified"))
+
 ;;;;;;;;;;;;;
 ;; User roles
 
@@ -79,7 +92,7 @@
        :for-allowed-group "public")
 
 (grant (read)
-       :to-graph (static kimai)
+       :to-graph (static)
        :for-allowed-group "public")
 
 (with-scope "http://services.redpencil.io/timekeeper-kimai-sync-service"
@@ -87,15 +100,19 @@
     :to-graph (kimai)
     :for-allowed-group "public"))
 
-;; example:
 
-;; (supply-allowed-group "company"
-;;   :query "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
-;;           SELECT DISTINCT ?uuid WHERE {
-;;             <SESSION_ID ext:belongsToCompany/mu:uuid ?uuid
-;;           }"
-;;   :parameters ("uuid"))
+(supply-allowed-group "logged-in"
+  :parameters ()
+  :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
+      PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+      PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+      SELECT ?account WHERE {
+          <SESSION_ID> session:account ?account .
+      } LIMIT 1")
 
-;; (grant (read write)
-;;        :to company
-;;        :for "company")
+(grant (write)
+       :to-graph timesheet
+       :for-allowed-group "logged-in")
+(grant (read)
+       :to-graph (kimai static users)
+       :for-allowed-group "logged-in")
