@@ -42,6 +42,7 @@
   :wf "http://www.w3.org/2005/01/wf/flow#"
   :cal "http://www.w3.org/2002/12/cal/ical#"
   :foaf "http://xmlns.com/foaf/0.1/"
+  :dct "http://purl.org/dc/terms/"
   :prov "http://www.w3.org/ns/prov#")
 
 
@@ -91,11 +92,7 @@
        :for-allowed-group "public")
 
 (grant (read)
-       :to-graph (static kimai)
-       :for-allowed-group "public")
-
-(grant (read)
-       :to-graph public
+       :to-graph (static)
        :for-allowed-group "public")
 
 (with-scope "http://services.redpencil.io/timekeeper-kimai-sync-service"
@@ -114,21 +111,8 @@
       } LIMIT 1")
 
 (grant (write)
-       :to-graph public
+       :to-graph timesheet
        :for-allowed-group "logged-in")
 (grant (read)
-       :to-graph users
+       :to-graph (kimai static users)
        :for-allowed-group "logged-in")
-
-;; example:
-
-;; (supply-allowed-group "company"
-;;   :query "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
-;;           SELECT DISTINCT ?uuid WHERE {
-;;             <SESSION_ID ext:belongsToCompany/mu:uuid ?uuid
-;;           }"
-;;   :parameters ("uuid"))
-
-;; (grant (read write)
-;;        :to company
-;;        :for "company")
