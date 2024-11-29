@@ -11,7 +11,7 @@
     "dct": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "ui": "http://www.w3.org/ns/ui#",
-    "time": "http://www.w3.org/2006/time#",
+    "time": "http://www.w3.org/2006/time#"
   },
   "resources": {
     "customers": {
@@ -35,9 +35,7 @@
           "cardinality": "many"
         }
       },
-      "features": [
-        "include-uri"
-      ],
+      "features": ["include-uri"],
       "new-resource-base": "http://timekeeper.redpencil.io/customers/"
     },
     "tasks": {
@@ -87,9 +85,7 @@
           "cardinality": "one"
         }
       },
-      "features": [
-        "include-uri"
-      ],
+      "features": ["include-uri"],
       "new-resource-base": "http://timekeeper.redpencil.io/tasks/"
     },
     "workspaces": {
@@ -115,9 +111,7 @@
           "cardinality": "many"
         }
       },
-      "features": [
-        "include-uri"
-      ],
+      "features": ["include-uri"],
       "new-resource-base": "http://timekeeper.redpencil.io/workspaces/"
     },
     "work-logs": {
@@ -151,9 +145,7 @@
           "inverse": "true"
         }
       },
-      "features": [
-        "include-uri"
-      ],
+      "features": ["include-uri"],
       "new-resource-base": "http://timekeeper.redpencil.io/work-logs/"
     },
     "timesheets": {
@@ -181,63 +173,8 @@
           "cardinality": "many"
         }
       },
-      "features": [
-        "include-uri"
-      ],
+      "features": ["include-uri"],
       "new-resource-base": "http://timekeeper.redpencil.io/timesheets/"
-    },
-    "persons": {
-      "name": "person",
-      "class": "foaf:Person",
-      "attributes": {
-        "name": {
-          "type": "string",
-          "predicate": "foaf:name"
-        }
-      },
-      "relationships": {
-        "account": {
-          "predicate": "foaf:account",
-          "target": "account",
-          "cardinality": "many"
-        },
-        "work-logs": {
-          "predicate": "prov:wasAssociatedWith",
-          "target": "work-log",
-          "cardinality": "many",
-          "inverse": true
-        }
-      },
-      "features": [
-        "include-uri"
-      ],
-      "new-resource-base": "http://timekeeper.redpencil.io/persons/"
-    },
-    "accounts": {
-      "name": "account",
-      "class": "foaf:OnlineAccount",
-      "attributes": {
-        "account-name": {
-          "type": "string",
-          "predicate": "foaf:accountName"
-        },
-        "account-service-url": {
-          "type": "string",
-          "predicate": "foaf:accountServiceHomepage"
-        }
-      },
-      "relationships": {
-        "person": {
-          "predicate": "foaf:account",
-          "target": "person",
-          "cardinality": "one",
-          "inverse": true
-        }
-      },
-      "features": [
-        "include-uri"
-      ],
-      "new-resource-base": "http://timekeeper.redpencil.io/accounts/"
     }
   }
 }

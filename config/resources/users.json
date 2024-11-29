@@ -4,8 +4,8 @@
     "foaf": "http://xmlns.com/foaf/0.1/"
   },
   "resources": {
-    "users": {
-      "name": "user",
+    "persons": {
+      "name": "person",
       "class": "foaf:Person",
       "attributes": {
         "name": {
@@ -17,11 +17,17 @@
         "account": {
           "predicate": "foaf:account",
           "target": "account",
-          "cardinality": "one"
+          "cardinality": "many"
+        },
+        "work-logs": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "work-log",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "features": ["include-uri"],
-      "new-resource-base": "http://lblod.data.gift/users/"
+      "new-resource-base": "http://timekeeper.redpencil.io/persons/"
     },
     "accounts": {
       "name": "account",
@@ -37,15 +43,15 @@
         }
       },
       "relationships": {
-        "user": {
+        "person": {
           "predicate": "foaf:account",
-          "target": "user",
+          "target": "person",
           "cardinality": "one",
           "inverse": true
         }
       },
       "features": ["include-uri"],
-      "new-resource-base": "http://lblod.data.gift/accounts/"
+      "new-resource-base": "http://timekeeper.redpencil.io/accounts/"
     }
   }
 }
