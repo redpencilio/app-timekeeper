@@ -154,11 +154,11 @@
       "_additionalClasses": "time:Interval",
       "attributes": {
         "start": {
-          "type": "dateTime",
+          "type": "date",
           "predicate": "time:hasBeginning"
         },
         "end": {
-          "type": "dateTime",
+          "type": "date",
           "predicate": "time:hasEnd"
         },
         "status": {
