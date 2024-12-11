@@ -168,6 +168,11 @@
         }
       },
       "relationships": {
+        "person": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "person",
+          "cardinality": "one"
+        },
         "work-logs": {
           "predicate": "skos:member",
           "target": "work-log",
