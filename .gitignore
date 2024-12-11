@@ -6,5 +6,6 @@
 
 docker-compose.override.yml
 
+*sensitive*
 *~
 .env
