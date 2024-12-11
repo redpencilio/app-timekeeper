@@ -80,11 +80,8 @@
     -> "foaf:accountName"
     -> "foaf:accountServiceHomepage"
     -> "dct:created"
-    -> "dct:modified"))
-
-(define-graph groups ("http://mu.semte.ch/graphs/users")
-  ("foaf:Group")
-)
+    -> "dct:modified")
+  ("foaf:Group"))
 ;;;;;;;;;;;;;
 ;; User roles
 
@@ -141,5 +138,5 @@
        :for-allowed-group "logged-in")
 
 (grant (read write)
-       :to-graph (groups)
+       :to-graph (users)
        :for-allowed-group "admin")
