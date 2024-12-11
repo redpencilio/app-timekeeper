@@ -1,0 +1,13 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/users> {
+    <http://mu.semte.ch/user-groups/employee> a foaf:Group ;
+        mu:uuid "cb3222fd-3e1d-4239-9c1b-62cc3d211645" ;
+        foaf:name "Employee" .
+
+    <http://mu.semte.ch/user-groups/admin> a foaf:Group ;
+        mu:uuid "40251108-3b5c-4dce-b14a-f0d0c8947237" ;
+        foaf:name "Admin" .
+  }
+}
