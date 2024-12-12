@@ -81,17 +81,13 @@
     -> "foaf:accountServiceHomepage"
     -> "dct:created"
     -> "dct:modified")
-  ("foaf:Group"))
+  ("foaf:Group"
+    -> "foaf:member"))
+
 ;;;;;;;;;;;;;
 ;; User roles
 
 (supply-allowed-group "public")
-
-(with-scope "http://services.redpencil.io/timekeeper-kimai-sync-service"
-  (grant (read write)
-    :to-graph (kimai)
-    :for-allowed-group "public"))
-
 
 (supply-allowed-group "logged-in"
   :parameters ()
@@ -124,6 +120,15 @@
           ?user foaf:account ?account .
           <http://mu.semte.ch/user-groups/employee> foaf:member ?user .
       } LIMIT 1")
+
+(grant (read)
+       :to-graph (static)
+       :for-allowed-group "public")
+
+(with-scope "http://services.redpencil.io/timekeeper-kimai-sync-service"
+  (grant (read write)
+    :to-graph (kimai timesheet)
+    :for-allowed-group "public"))
 
 (grant (read write)
        :to-graph (timesheet)
