@@ -24,6 +24,12 @@
           "target": "work-log",
           "cardinality": "many",
           "inverse": true
+        },
+        "timesheets": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "timesheet",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "features": ["include-uri"],
