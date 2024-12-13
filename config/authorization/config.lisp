@@ -80,26 +80,14 @@
     -> "foaf:accountName"
     -> "foaf:accountServiceHomepage"
     -> "dct:created"
-    -> "dct:modified"))
+    -> "dct:modified")
+  ("foaf:Group"
+    -> "foaf:member"))
 
 ;;;;;;;;;;;;;
 ;; User roles
 
 (supply-allowed-group "public")
-
-(grant (read write)
-       :to-graph timesheet
-       :for-allowed-group "public")
-
-(grant (read)
-       :to-graph (static)
-       :for-allowed-group "public")
-
-(with-scope "http://services.redpencil.io/timekeeper-kimai-sync-service"
-  (grant (read write)
-    :to-graph (kimai)
-    :for-allowed-group "public"))
-
 
 (supply-allowed-group "logged-in"
   :parameters ()
@@ -110,9 +98,50 @@
           <SESSION_ID> session:account ?account .
       } LIMIT 1")
 
-(grant (write)
-       :to-graph timesheet
-       :for-allowed-group "logged-in")
+(supply-allowed-group "admin"
+  :parameters ()
+  :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
+      PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+      PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+      SELECT ?account WHERE {
+          <SESSION_ID> session:account ?account .
+          ?user foaf:account ?account .
+          <http://mu.semte.ch/user-groups/admin> foaf:member ?user .
+      } LIMIT 1")
+
+
+(supply-allowed-group "employee"
+  :parameters ()
+  :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
+      PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+      PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+      SELECT ?account WHERE {
+          <SESSION_ID> session:account ?account .
+          ?user foaf:account ?account .
+          <http://mu.semte.ch/user-groups/employee> foaf:member ?user .
+      } LIMIT 1")
+
 (grant (read)
-       :to-graph (kimai static users)
+       :to-graph (static)
+       :for-allowed-group "public")
+
+(with-scope "http://services.redpencil.io/timekeeper-kimai-sync-service"
+  (grant (read write)
+    :to-graph (kimai timesheet)
+    :for-allowed-group "public"))
+
+(grant (read write)
+       :to-graph (timesheet)
+       :for-allowed-group "employee")
+
+(grant (read)
+       :to-graph (static)
        :for-allowed-group "logged-in")
+
+(grant (read)
+       :to-graph (users)
+       :for-allowed-group "logged-in")
+
+(grant (read write)
+       :to-graph (users)
+       :for-allowed-group "admin")
