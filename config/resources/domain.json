@@ -1,6 +1,7 @@
 {
   "version": "0.1",
   "prefixes": {
+    "adms": "http://www.w3.org/ns/adms#",
     "ext": "http://mu.semte.ch/vocabularies/ext/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "mu": "http://mu.semte.ch/vocabularies/core/",
