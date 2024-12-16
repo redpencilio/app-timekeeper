@@ -61,11 +61,15 @@ defmodule Dispatcher do
     forward conn, path, "http://resource/timesheets/"
   end
 
-  get "/persons/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/persons/"
+  get "/people/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://resource/people/"
   end
 
-  get "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
+  get "/user-groups/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://resource/user-groups/"
+  end
+
+  match "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
     forward conn, path, "http://resource/accounts/"
   end
 
