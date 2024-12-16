@@ -1,0 +1,9 @@
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/users> {
+    <http://mu.semte.ch/user-groups/employee> foaf:member ?user .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/users> {
+    ?user a foaf:Person .
+  }
+}
