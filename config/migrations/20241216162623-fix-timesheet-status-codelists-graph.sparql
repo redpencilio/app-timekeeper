@@ -1,0 +1,7 @@
+DELETE {
+  GRAPH <http://mu.semte.ch/graps/redpencil> { ?s ?p ?o . }
+} INSERT {
+  GRAPH <http://mu.semte.ch/graphs/redpencil> { ?s ?p ?o . }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graps/redpencil> { ?s ?p ?o . }
+}
