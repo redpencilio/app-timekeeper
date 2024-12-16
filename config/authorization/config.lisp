@@ -135,11 +135,7 @@
        :for-allowed-group "employee")
 
 (grant (read)
-       :to-graph (static)
-       :for-allowed-group "logged-in")
-
-(grant (read)
-       :to-graph (users)
+       :to-graph (static kimai users)
        :for-allowed-group "logged-in")
 
 (grant (read write)
