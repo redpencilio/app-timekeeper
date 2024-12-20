@@ -55,7 +55,7 @@
 ;; specifications can be folded too.  This could help when building
 ;; indexes.
 
-(define-graph timesheet ("http://mu.semte.ch/graphs/redpencil")
+(define-graph timesheet ("http://mu.semte.ch/graphs/employees/")
   ("cal:Vevent" -> _)
   ("skos:Collection" -> _)
   ("foaf:Person" -> _)
@@ -89,6 +89,15 @@
 
 (supply-allowed-group "public")
 
+(supply-allowed-group "public-all-employees"
+  :parameters ("employeeId")
+  :query "PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+      SELECT ?employeeId WHERE {
+        <http://mu.semte.ch/user-groups/employee> foaf:member ?user .
+        ?user mu:uuid ?employeeId .
+      }"
+)
+
 (supply-allowed-group "logged-in"
   :parameters ()
   :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
@@ -111,14 +120,15 @@
 
 
 (supply-allowed-group "employee"
-  :parameters ()
+  :parameters ("employeeId")
   :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
       PREFIX foaf: <http://xmlns.com/foaf/0.1/>
       PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
-      SELECT ?account WHERE {
+      SELECT ?account ?employeeId WHERE {
           <SESSION_ID> session:account ?account .
           ?user foaf:account ?account .
           <http://mu.semte.ch/user-groups/employee> foaf:member ?user .
+          ?user mu:uuid ?employeeId .
       } LIMIT 1")
 
 (grant (read)
@@ -127,11 +137,14 @@
 
 (with-scope "http://services.redpencil.io/timekeeper-kimai-sync-service"
   (grant (read write)
-    :to-graph (kimai timesheet)
+    :to-graph (kimai)
     :for-allowed-group "public")
   (grant (read)
     :to-graph (users)
-    :for-allowed-group "public"))
+    :for-allowed-group "public")
+  (grant (read write)
+    :to-graph (timesheet)
+    :for-allowed-group "public-all-employees"))
 
 (grant (read write)
        :to-graph (timesheet)
