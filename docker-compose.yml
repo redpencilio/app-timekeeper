@@ -78,7 +78,6 @@ services:
       - "logging=true"
   registration:
     image: semtech/mu-registration-service:2.7.3
-    entrypoint: echo "Only needed for mu script"
     environment:
       USERS_GRAPH: "http://mu.semte.ch/graphs/users"
       SESSIONS_GRAPH: "http://mu.semte.ch/graphs/sessions"

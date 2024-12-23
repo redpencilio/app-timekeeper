@@ -73,6 +73,10 @@ defmodule Dispatcher do
     forward conn, path, "http://resource/accounts/"
   end
 
+  match "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://registration/accounts/"
+  end
+
   match "/sessions/*path", @json do
     Proxy.forward conn, path, "http://login/sessions/"
   end
