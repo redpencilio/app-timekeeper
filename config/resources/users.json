@@ -4,7 +4,7 @@
     "foaf": "http://xmlns.com/foaf/0.1/"
   },
   "resources": {
-    "persons": {
+    "people": {
       "name": "person",
       "class": "foaf:Person",
       "attributes": {
@@ -14,11 +14,6 @@
         }
       },
       "relationships": {
-        "account": {
-          "predicate": "foaf:account",
-          "target": "account",
-          "cardinality": "many"
-        },
         "work-logs": {
           "predicate": "prov:wasAssociatedWith",
           "target": "work-log",
@@ -30,6 +25,17 @@
           "target": "timesheet",
           "cardinality": "many",
           "inverse": true
+        },
+        "user-groups": {
+          "predicate": "foaf:member",
+          "target": "user-group",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "accounts": {
+          "predicate": "foaf:account",
+          "target": "account",
+          "cardinality": "many"
         }
       },
       "features": ["include-uri"],
@@ -43,8 +49,8 @@
           "type": "string",
           "predicate": "foaf:accountName"
         },
-        "account-service-url": {
-          "type": "string",
+        "account-service-homepage": {
+          "type": "url",
           "predicate": "foaf:accountServiceHomepage"
         }
       },
@@ -58,6 +64,25 @@
       },
       "features": ["include-uri"],
       "new-resource-base": "http://timekeeper.redpencil.io/accounts/"
+    },
+    "user-groups": {
+      "name": "user-group",
+      "class": "foaf:Group",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "foaf:name"
+        }
+      },
+      "relationships": {
+        "members": {
+          "predicate": "foaf:member",
+          "target": "person",
+          "cardinality": "many"
+        }
+      },
+      "features": ["include-uri"],
+      "new-resource-base": "http://timekeeper.redpencil.io/user-groups/"
     }
   }
 }
