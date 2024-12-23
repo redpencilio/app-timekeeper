@@ -28,7 +28,7 @@ services:
     labels:
       - "logging=true"
   kimai-sync:
-    image: redpencil/timekeeper-kimai-sync-service:0.1.0
+    image: redpencil/timekeeper-kimai-sync-service:0.2.0
     environment:
       API_TOKEN: "your_secret_kimai_api_token_here"
       KIMAI_ENDPOINT: "https://test.kimai.redpencil.io/api"
@@ -52,7 +52,7 @@ services:
     labels:
       - "logging=true"
   database:
-    image: semtech/sparql-parser:0.0.11
+    image: semtech/sparql-parser:0.0.13
     volumes:
       - ./config/authorization/:/config/
       - ./data/authorization/:/data/
