@@ -75,7 +75,7 @@
         }
       },
       "relationships": {
-        "persons": {
+        "members": {
           "predicate": "foaf:member",
           "target": "person",
           "cardinality": "many"
