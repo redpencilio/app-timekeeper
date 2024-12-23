@@ -128,6 +128,9 @@
 (with-scope "http://services.redpencil.io/timekeeper-kimai-sync-service"
   (grant (read write)
     :to-graph (kimai timesheet)
+    :for-allowed-group "public")
+  (grant (read)
+    :to-graph (users)
     :for-allowed-group "public"))
 
 (grant (read write)
