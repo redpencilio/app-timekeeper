@@ -1,0 +1,12 @@
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/users> {
+    ?account <http://xmlns.com/foaf/0.1/accountServiceHomepage> <http://timekeeper.redpencil.io> .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/users> {
+    ?account a <http://xmlns.com/foaf/0.1/OnlineAccount> .
+    FILTER NOT EXISTS {
+      ?account <http://xmlns.com/foaf/0.1/accountServiceHomepage> ?homepage .
+    }
+  }
+}
