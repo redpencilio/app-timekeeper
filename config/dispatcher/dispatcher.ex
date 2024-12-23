@@ -69,16 +69,16 @@ defmodule Dispatcher do
     forward conn, path, "http://resource/user-groups/"
   end
 
+  match "/accounts/current/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://registration/accounts/current/"
+  end
+
   match "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
     forward conn, path, "http://resource/accounts/"
   end
 
-  match "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://registration/accounts/"
-  end
-
-  match "/sessions/*path", @json do
-    Proxy.forward conn, path, "http://login/sessions/"
+  match "/sessions/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://login/sessions/"
   end
 
   match "/*_", %{ layer: :not_found } do
