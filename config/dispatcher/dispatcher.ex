@@ -42,31 +42,31 @@ defmodule Dispatcher do
   # API SERVICES
   ###############
   get "/customers/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/customers/"
+    forward conn, path, "http://cache/customers/"
   end
 
   get "/tasks/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/tasks/"
+    forward conn, path, "http://cache/tasks/"
   end
 
   get "/workspaces/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/workspaces/"
+    forward conn, path, "http://cache/workspaces/"
   end
 
   match "/work-logs/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/work-logs/"
+    forward conn, path, "http://cache/work-logs/"
   end
 
   match "/timesheets/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/timesheets/"
+    forward conn, path, "http://cache/timesheets/"
   end
 
   get "/people/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/people/"
+    forward conn, path, "http://cache/people/"
   end
 
   get "/user-groups/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/user-groups/"
+    forward conn, path, "http://cache/user-groups/"
   end
 
   match "/accounts/current/*path", %{ layer: :services, accept: %{ json: true } } do
@@ -74,7 +74,7 @@ defmodule Dispatcher do
   end
 
   match "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://resource/accounts/"
+    forward conn, path, "http://cache/accounts/"
   end
 
   match "/sessions/*path", %{ layer: :services, accept: %{ json: true } } do
