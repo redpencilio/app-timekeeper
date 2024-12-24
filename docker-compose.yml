@@ -85,3 +85,7 @@ services:
       - database:database
     labels:
       - "logging=true"
+  admin-jobs:
+    image: redpencil/timekeeper-admin-jobs-service:0.1.0
+    environment:
+      PUBLIC_HOLIDAY_TASK: "http://timekeeper.redpencil.io/tasks/holiday-task" # TODO adjust to correct uri
