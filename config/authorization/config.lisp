@@ -123,15 +123,22 @@
 
 (supply-allowed-group "kimai-each-employee"
   :parameters ("employeeId")
-  :query "PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+  :query "PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+      PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
       SELECT ?employeeId WHERE {
         <http://mu.semte.ch/user-groups/employee> foaf:member ?user .
         ?user mu:uuid ?employeeId .
       }")
 
+;; workaroud to avoid allowed-groups to be discarded because they don't have a grant
 (grant (read)
-       :to-graph (static)
-       :for-allowed-group "public")
+  :to-graph (static)
+  :for-allowed-group "public")
+
+(grant (read)
+  :to-graph (static)
+  :for-allowed-group "kimai-each-employee")
+;; end workaround
 
 (with-scope "http://services.redpencil.io/timekeeper-kimai-sync-service"
   (grant (read write)
