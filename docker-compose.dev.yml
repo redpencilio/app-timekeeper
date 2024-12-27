@@ -4,6 +4,26 @@ services:
   identifier:
     ports:
       - "80:80"
+    restart: "no"
+  dispatcher:
+    restart: "no"
+  frontend:
+    restart: "no"
+  login:
+    restart: "no"
+  kimai-sync:
+    restart: "no"
+  migrations:
+    restart: "no"
+  delta-notifier:
+    restart: "no"
+  registration:
+    restart: "no"
+  resource:
+    restart: "no"
+  database:
+    restart: "no"
   triplestore:
     ports:
       - "8890:8890"
+    restart: "no"
