@@ -1,6 +1,4 @@
 services:
-  frontend:
-    restart: "no"
   identifier:
     ports:
       - "80:80"
@@ -18,6 +16,8 @@ services:
   delta-notifier:
     restart: "no"
   registration:
+    restart: "no"
+  cache:
     restart: "no"
   resource:
     restart: "no"
