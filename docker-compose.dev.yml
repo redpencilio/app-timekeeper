@@ -17,6 +17,8 @@ services:
     restart: "no"
   registration:
     restart: "no"
+  cache:
+    restart: "no"
   resource:
     restart: "no"
   database:
