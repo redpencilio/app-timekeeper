@@ -89,15 +89,6 @@
 
 (supply-allowed-group "public")
 
-(supply-allowed-group "public-all-employees"
-  :parameters ("employeeId")
-  :query "PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
-      SELECT ?employeeId WHERE {
-        <http://mu.semte.ch/user-groups/employee> foaf:member ?user .
-        ?user mu:uuid ?employeeId .
-      }"
-)
-
 (supply-allowed-group "logged-in"
   :parameters ()
   :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
@@ -118,7 +109,6 @@
           <http://mu.semte.ch/user-groups/admin> foaf:member ?user .
       } LIMIT 1")
 
-
 (supply-allowed-group "employee"
   :parameters ("employeeId")
   :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
@@ -130,6 +120,14 @@
           <http://mu.semte.ch/user-groups/employee> foaf:member ?user .
           ?user mu:uuid ?employeeId .
       } LIMIT 1")
+
+(supply-allowed-group "kimai-each-employee"
+  :parameters ("employeeId")
+  :query "PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+      SELECT ?employeeId WHERE {
+        <http://mu.semte.ch/user-groups/employee> foaf:member ?user .
+        ?user mu:uuid ?employeeId .
+      }")
 
 (grant (read)
        :to-graph (static)
@@ -144,7 +142,7 @@
     :for-allowed-group "public")
   (grant (read write)
     :to-graph (timesheet)
-    :for-allowed-group "public-all-employees"))
+    :for-allowed-group "kimai-each-employee"))
 
 (grant (read write)
        :to-graph (timesheet)
