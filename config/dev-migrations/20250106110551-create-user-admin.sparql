@@ -1,0 +1,30 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX people: <http://timekeeper.redpencil.io/persons/>
+PREFIX accounts: <http://timekeeper.redpencil.io/accounts/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX mu:      <http://mu.semte.ch/vocabularies/core/>
+PREFIX account: <http://mu.semte.ch/vocabularies/account/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT DATA {
+   GRAPH <http://mu.semte.ch/graphs/users> {
+     people:4bf7d47f-14bd-4247-b282-1e1738644eee a foaf:Person ;
+                   foaf:name "Admin" ;
+                   foaf:account accounts:f8b08abc-0538-49c6-8d61-3941a3eecc13 ;
+                   mu:uuid "4bf7d47f-14bd-4247-b282-1e1738644eee" ;
+                   dcterms:created "2025-01-06T11:05:51+00:00"^^xsd:dateTime ;
+                   dcterms:modified "2025-01-06T11:05:51+00:00"^^xsd:dateTime .
+
+    <http://mu.semte.ch/user-groups/admin> foaf:member people:4bf7d47f-14bd-4247-b282-1e1738644eee .
+    <http://mu.semte.ch/user-groups/employee> foaf:member people:4bf7d47f-14bd-4247-b282-1e1738644eee .
+
+     accounts:f8b08abc-0538-49c6-8d61-3941a3eecc13 a foaf:OnlineAccount ;
+                   foaf:accountName "admin@redpencil.io" ;
+                   mu:uuid "f8b08abc-0538-49c6-8d61-3941a3eecc13" ;
+                   account:password """$2a$12$CYegCwUzqNDOBK18cdICpu.XUC1nVxJ8BncqyWYpf.YeoaxWsbGia""" ;
+                   account:salt "04a2f3a61595bc765e82a11f28e2590a" ;
+                   account:status <http://mu.semte.ch/vocabularies/account/status/active> ;
+                   dcterms:created "2025-01-06T11:05:51+00:00"^^xsd:dateTime ;
+                   dcterms:modified "2025-01-06T11:05:51+00:00"^^xsd:dateTime .
+    }
+}

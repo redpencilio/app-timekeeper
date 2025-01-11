@@ -12,10 +12,14 @@ services:
   kimai-sync:
     restart: "no"
   migrations:
+    volumes:
+      - ./config/dev-migrations:/data/migrations/dev/
     restart: "no"
   delta-notifier:
     restart: "no"
   registration:
+    restart: "no"
+  cache:
     restart: "no"
   resource:
     restart: "no"
