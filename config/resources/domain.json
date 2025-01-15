@@ -126,6 +126,10 @@
         "date": {
           "type": "date",
           "predicate": "cal:dtstart"
+        },
+        "note": {
+          "type": "string",
+          "predicate": "cal:comment"
         }
       },
       "relationships": {
