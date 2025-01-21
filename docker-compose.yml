@@ -17,7 +17,7 @@ services:
 
   # Your extra services here
   frontend:
-    image: redpencil/frontend-timekeeper:0.2.0
+    image: redpencil/frontend-timekeeper:0.3.0
     links:
       - identifier:backend
     restart: always
