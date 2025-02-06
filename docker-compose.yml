@@ -14,10 +14,8 @@ services:
     restart: always
     labels:
       - "logging=true"
-
-  # Your extra services here
   frontend:
-    image: redpencil/frontend-timekeeper:0.3.0
+    image: redpencil/frontend-timekeeper:0.4.1
     links:
       - identifier:backend
     restart: always
