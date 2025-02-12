@@ -1,0 +1,42 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://timekeeper.redpencil.io/concept-schemes/8d0407eb-36b9-4ef5-b6df-e63df460446d> a skos:ConceptScheme ;
+    mu:uuid "8d0407eb-36b9-4ef5-b6df-e63df460446d" ;
+    skos:prefLabel "Holiday Counters" .
+
+<http://timekeeper.redpencil.io/concepts/6644c724-96b8-446f-8aec-ced33577c639> a skos:Concept ;
+    mu:uuid "6644c724-96b8-446f-8aec-ced33577c639" ;
+    skos:prefLabel "Holiday Counter" ;
+    skos:inScheme <http://timekeeper.redpencil.io/concept-schemes/8d0407eb-36b9-4ef5-b6df-e63df460446d> ;
+    skos:topConceptOf <http://timekeeper.redpencil.io/concept-schemes/8d0407eb-36b9-4ef5-b6df-e63df460446d> .
+
+<http://timekeeper.redpencil.io/concepts/eb9813ca-cfe5-444b-94b9-09874982d92c> a skos:Concept ;
+    mu:uuid "eb9813ca-cfe5-444b-94b9-09874982d92c" ;
+    skos:prefLabel "Public holiday in weekend" ;
+    skos:inScheme <http://timekeeper.redpencil.io/concept-schemes/8d0407eb-36b9-4ef5-b6df-e63df460446d> ;
+    skos:broader <http://timekeeper.redpencil.io/concepts/6644c724-96b8-446f-8aec-ced33577c639> .
+
+<http://timekeeper.redpencil.io/concepts/80e059db-c653-49b6-b9e7-1ca0c03db47b> a skos:Concept ;
+    mu:uuid "80e059db-c653-49b6-b9e7-1ca0c03db47b" ;
+    skos:prefLabel "ADV" ;
+    skos:inScheme <http://timekeeper.redpencil.io/concept-schemes/8d0407eb-36b9-4ef5-b6df-e63df460446d> ;
+    skos:broader <http://timekeeper.redpencil.io/concepts/6644c724-96b8-446f-8aec-ced33577c639> .
+
+<http://timekeeper.redpencil.io/concepts/5608072c-3396-4ecc-9573-eee910179c1c> a skos:Concept ;
+    mu:uuid "5608072c-3396-4ecc-9573-eee910179c1c" ;
+    skos:prefLabel "Holiday" ;
+    skos:inScheme <http://timekeeper.redpencil.io/concept-schemes/8d0407eb-36b9-4ef5-b6df-e63df460446d> ;
+    skos:broader <http://timekeeper.redpencil.io/concepts/6644c724-96b8-446f-8aec-ced33577c639> .
+
+<http://timekeeper.redpencil.io/concepts/5dfc278c-d0f3-4978-9853-67c8a8379a58> a skos:Concept ;
+    mu:uuid "5dfc278c-d0f3-4978-9853-67c8a8379a58" ;
+    skos:prefLabel "Transferred holiday (last year)" ;
+    skos:inScheme <http://timekeeper.redpencil.io/concept-schemes/8d0407eb-36b9-4ef5-b6df-e63df460446d> ;
+    skos:broader <http://timekeeper.redpencil.io/concepts/6644c724-96b8-446f-8aec-ced33577c639> .
+
+<http://timekeeper.redpencil.io/concepts/5416871e-8bd7-473e-a101-1fc163f0e81e> a skos:Concept ;
+    mu:uuid "5416871e-8bd7-473e-a101-1fc163f0e81e" ;
+    skos:prefLabel "Overtime" ;
+    skos:inScheme <http://timekeeper.redpencil.io/concept-schemes/8d0407eb-36b9-4ef5-b6df-e63df460446d> ;
+    skos:broader <http://timekeeper.redpencil.io/concepts/6644c724-96b8-446f-8aec-ced33577c639> .
