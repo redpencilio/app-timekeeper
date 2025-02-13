@@ -43,7 +43,9 @@
   :cal "http://www.w3.org/2002/12/cal/ical#"
   :foaf "http://xmlns.com/foaf/0.1/"
   :dct "http://purl.org/dc/terms/"
-  :prov "http://www.w3.org/ns/prov#")
+  :prov "http://www.w3.org/ns/prov#"
+  :qudt "http://qudt.org/schema/qudt/"
+  :tempo "http://purl.org/tempo/")
 
 
 ;;;;;;;;;
@@ -83,6 +85,14 @@
     -> "dct:modified")
   ("foaf:Group"
     -> "foaf:member"))
+
+(define-graph holidays ("http://mu.semte.ch/graphs/holidays")
+  ("qudt:Quantity"
+    -> "qudt:value"
+    -> "prov:wasAssociatedWith"
+    -> "qudt:hasQuantityKind"
+    -> "tempo:validFrom"
+    -> "tempo:validTo"))
 
 ;;;;;;;;;;;;;
 ;; User roles
@@ -138,9 +148,9 @@
        :for-allowed-group "employee")
 
 (grant (read)
-       :to-graph (static kimai users)
+       :to-graph (static kimai users holidays)
        :for-allowed-group "logged-in")
 
 (grant (read write)
-       :to-graph (users)
+       :to-graph (users holidays)
        :for-allowed-group "admin")
