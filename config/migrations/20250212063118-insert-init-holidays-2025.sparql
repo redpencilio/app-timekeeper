@@ -16,7 +16,7 @@ INSERT {
     ?publicHolidayInWeekendCounterUri 
       a qudt:Quantity ;
       mu:uuid ?publicHolidayInWeekendCounterUuid ;
-      qudt:value 16 ;
+      qudt:value "PT16H" ;
       prov:wasAssociatedWith ?employee ;
       qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/eb9813ca-cfe5-444b-94b9-09874982d92c> ;
       tempo:validFrom "2025-01-01"^^xsd:date ;
@@ -24,33 +24,33 @@ INSERT {
     ?advCounterUri 
       a qudt:Quantity ;
       mu:uuid ?advCounterUuid ;
-      qudt:value 96 ;
+      qudt:value "PT96H" ;
       prov:wasAssociatedWith ?employee ;
-      qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/eb9813ca-cfe5-444b-94b9-09874982d92c> ;
+      qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/80e059db-c653-49b6-b9e7-1ca0c03db47b> ;
       tempo:validFrom "2025-01-01"^^xsd:date ;
       tempo:validTill "2026-01-01"^^xsd:date .
     ?holidayCounterUri 
       a qudt:Quantity ;
       mu:uuid ?holidayCounterUuid ;
-      qudt:value 160 ;
+      qudt:value "PT160H" ;
       prov:wasAssociatedWith ?employee ;
-      qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/eb9813ca-cfe5-444b-94b9-09874982d92c> ;
+      qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/5608072c-3396-4ecc-9573-eee910179c1c> ;
       tempo:validFrom "2025-01-01"^^xsd:date ;
       tempo:validTill "2026-01-01"^^xsd:date .
     ?transferredHolidayCounterUri 
       a qudt:Quantity ;
       mu:uuid ?transferredHolidayCounterUuid ;
-      qudt:value 0 ;
+      qudt:value "PT0H" ;
       prov:wasAssociatedWith ?employee ;
-      qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/eb9813ca-cfe5-444b-94b9-09874982d92c> ;
+      qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/5dfc278c-d0f3-4978-9853-67c8a8379a58> ;
       tempo:validFrom "2025-01-01"^^xsd:date ;
       tempo:validTill "2026-01-01"^^xsd:date .
     ?overtimeCounterUri 
       a qudt:Quantity ;
       mu:uuid ?overtimeCounterUuid ;
-      qudt:value 0 ;
+      qudt:value "PT0H" ;
       prov:wasAssociatedWith ?employee ;
-      qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/eb9813ca-cfe5-444b-94b9-09874982d92c> ;
+      qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/5416871e-8bd7-473e-a101-1fc163f0e81e> ;
       tempo:validFrom "2025-01-01"^^xsd:date ;
       tempo:validTill "2026-01-01"^^xsd:date .
   }
