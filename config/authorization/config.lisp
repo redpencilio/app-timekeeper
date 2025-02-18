@@ -20,6 +20,7 @@
 (in-package :type-cache)
 
 (add-type-for-prefix "http://mu.semte.ch/sessions/" "http://mu.semte.ch/vocabularies/session/Session") ; each session URI will be handled for updates as if it had this mussession:Session type
+(add-type-for-prefix "http://timekeeper.redpencil.io/work-logs/" "http://www.w3.org/2002/12/cal/ical#Vevent") ; kimai-sync service needs to cleanup dangling triples after rdf:type has already been removed
 
 ;;;;;;;;;;;;;;;;;
 ;;; access rights
