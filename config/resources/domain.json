@@ -188,8 +188,8 @@
       "features": ["include-uri"],
       "new-resource-base": "http://timekeeper.redpencil.io/timesheets/"
     },
-    "holiday-counters": {
-      "name": "holiday-counter",
+    "quanities": {
+      "name": "quantities",
       "class": "qudt:Quantity",
       "attributes": {
         "value": {
@@ -211,14 +211,14 @@
           "target": "person",
           "cardinality": "one"
         },
-        "holiday-type": {
+        "quantity-kind": {
           "predicate": "qudt:hasQuantityKind",
           "target": "concept",
           "cardinality": "one"
         }
       },
       "features": ["include-uri"],
-      "new-resource-base": "http://timekeeper.redpencil.io/holiday-counters/"
+      "new-resource-base": "http://timekeeper.redpencil.io/quantities/"
     }
   }
 }
