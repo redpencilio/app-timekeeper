@@ -24,3 +24,4 @@
 
 (read-domain-file "domain.json")
 (read-domain-file "users.json")
+(read-domain-file "concepts.json")

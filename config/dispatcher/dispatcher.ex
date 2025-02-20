@@ -81,6 +81,18 @@ defmodule Dispatcher do
     forward conn, path, "http://login/sessions/"
   end
 
+  match "/quantities/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://cache/quantities/"
+  end
+
+  match "/concepts/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://cache/concepts/"
+  end
+
+  match "/concept-schemes/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://cache/concept-schemes/"
+  end
+
   match "/*_", %{ layer: :not_found } do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
