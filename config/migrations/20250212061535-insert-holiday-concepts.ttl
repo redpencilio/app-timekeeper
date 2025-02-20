@@ -3,7 +3,7 @@
 
 <http://timekeeper.redpencil.io/concept-schemes/8d0407eb-36b9-4ef5-b6df-e63df460446d> a skos:ConceptScheme ;
     mu:uuid "8d0407eb-36b9-4ef5-b6df-e63df460446d" ;
-    skos:prefLabel "Holiday Counters" .
+    skos:prefLabel "Quantity Kinds" .
 
 <http://timekeeper.redpencil.io/concepts/6644c724-96b8-446f-8aec-ced33577c639> a skos:Concept ;
     mu:uuid "6644c724-96b8-446f-8aec-ced33577c639" ;
