@@ -81,8 +81,8 @@ defmodule Dispatcher do
     forward conn, path, "http://login/sessions/"
   end
 
-  match "/holiday-counters/*path", %{ layer: :services, accept: %{ json: true } } do
-    forward conn, path, "http://cache/holiday-counters/"
+  match "/quantities/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://cache/quantities/"
   end
 
   match "/concepts/*path", %{ layer: :services, accept: %{ json: true } } do

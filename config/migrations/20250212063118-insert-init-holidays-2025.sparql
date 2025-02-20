@@ -12,7 +12,7 @@ PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX tempo: <http://purl.org/tempo/>
 
 INSERT {
-  GRAPH <http://mu.semte.ch/graphs/holidays> {
+  GRAPH <http://mu.semte.ch/graphs/redpencil> {
     ?publicHolidayInWeekendCounterUri 
       a qudt:Quantity ;
       mu:uuid ?publicHolidayInWeekendCounterUuid ;

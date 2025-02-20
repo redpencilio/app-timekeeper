@@ -188,8 +188,8 @@
       "features": ["include-uri"],
       "new-resource-base": "http://timekeeper.redpencil.io/timesheets/"
     },
-    "quanities": {
-      "name": "quantities",
+    "quantities": {
+      "name": "quantity",
       "class": "qudt:Quantity",
       "attributes": {
         "value": {
