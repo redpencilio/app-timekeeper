@@ -63,6 +63,14 @@
   ("foaf:Person" -> _)
   ("foaf:OnlineAccount" -> _))
 
+(define-graph timesheet-admin ("http://mu.semte.ch/graphs/redpencil")
+  ("qudt:Quantity"
+    -> "qudt:value"
+    -> "prov:wasAssociatedWith"
+    -> "qudt:hasQuantityKind"
+    -> "tempo:validFrom"
+    -> "tempo:validTo"))
+
 (define-graph static ("http://mu.semte.ch/graphs/redpencil")
   ("skos:ConceptScheme" -> _)
   ("skos:Concept" -> _))
@@ -85,14 +93,6 @@
     -> "dct:modified")
   ("foaf:Group"
     -> "foaf:member"))
-
-(define-graph holidays ("http://mu.semte.ch/graphs/holidays")
-  ("qudt:Quantity"
-    -> "qudt:value"
-    -> "prov:wasAssociatedWith"
-    -> "qudt:hasQuantityKind"
-    -> "tempo:validFrom"
-    -> "tempo:validTo"))
 
 ;;;;;;;;;;;;;
 ;; User roles
@@ -148,9 +148,9 @@
        :for-allowed-group "employee")
 
 (grant (read)
-       :to-graph (static kimai users holidays)
+       :to-graph (static kimai users timesheet-admin)
        :for-allowed-group "logged-in")
 
 (grant (read write)
-       :to-graph (users holidays)
+       :to-graph (users timesheet-admin)
        :for-allowed-group "admin")
