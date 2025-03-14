@@ -85,11 +85,11 @@ defmodule Dispatcher do
     forward conn, path, "http://cache/quantities/"
   end
 
-  match "/concepts/*path", %{ layer: :services, accept: %{ json: true } } do
+  get "/concepts/*path", %{ layer: :services, accept: %{ json: true } } do
     forward conn, path, "http://cache/concepts/"
   end
 
-  match "/concept-schemes/*path", %{ layer: :services, accept: %{ json: true } } do
+  get "/concept-schemes/*path", %{ layer: :services, accept: %{ json: true } } do
     forward conn, path, "http://cache/concept-schemes/"
   end
 

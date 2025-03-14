@@ -16,7 +16,7 @@ INSERT {
     ?publicHolidayInWeekendCounterUri 
       a qudt:Quantity ;
       mu:uuid ?publicHolidayInWeekendCounterUuid ;
-      qudt:value "PT16H" ;
+      qudt:maxInclusive "PT16H" ;
       prov:wasAssociatedWith ?employee ;
       qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/eb9813ca-cfe5-444b-94b9-09874982d92c> ;
       tempo:validFrom "2025-01-01"^^xsd:date ;
@@ -24,7 +24,7 @@ INSERT {
     ?advCounterUri 
       a qudt:Quantity ;
       mu:uuid ?advCounterUuid ;
-      qudt:value "PT96H" ;
+      qudt:maxInclusive "PT96H" ;
       prov:wasAssociatedWith ?employee ;
       qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/80e059db-c653-49b6-b9e7-1ca0c03db47b> ;
       tempo:validFrom "2025-01-01"^^xsd:date ;
@@ -32,7 +32,7 @@ INSERT {
     ?holidayCounterUri 
       a qudt:Quantity ;
       mu:uuid ?holidayCounterUuid ;
-      qudt:value "PT160H" ;
+      qudt:maxInclusive "PT160H" ;
       prov:wasAssociatedWith ?employee ;
       qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/5608072c-3396-4ecc-9573-eee910179c1c> ;
       tempo:validFrom "2025-01-01"^^xsd:date ;
@@ -40,7 +40,7 @@ INSERT {
     ?transferredHolidayCounterUri 
       a qudt:Quantity ;
       mu:uuid ?transferredHolidayCounterUuid ;
-      qudt:value "PT0H" ;
+      qudt:maxInclusive "PT0H" ;
       prov:wasAssociatedWith ?employee ;
       qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/5dfc278c-d0f3-4978-9853-67c8a8379a58> ;
       tempo:validFrom "2025-01-01"^^xsd:date ;
@@ -48,7 +48,7 @@ INSERT {
     ?overtimeCounterUri 
       a qudt:Quantity ;
       mu:uuid ?overtimeCounterUuid ;
-      qudt:value "PT0H" ;
+      qudt:maxInclusive "PT0H" ;
       prov:wasAssociatedWith ?employee ;
       qudt:hasQuantityKind <http://timekeeper.redpencil.io/concepts/5416871e-8bd7-473e-a101-1fc163f0e81e> ;
       tempo:validFrom "2025-01-01"^^xsd:date ;

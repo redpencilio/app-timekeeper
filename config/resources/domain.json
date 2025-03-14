@@ -194,7 +194,7 @@
       "attributes": {
         "value": {
           "type": "string",
-          "predicate": "qudt:value"
+          "predicate": "qudt:maxInclusive"
         },
         "valid-from": {
           "type": "date",
