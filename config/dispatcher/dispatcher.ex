@@ -49,6 +49,10 @@ defmodule Dispatcher do
     forward conn, path, "http://cache/tasks/"
   end
 
+  patch "/tasks/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://cache/tasks/"
+  end
+
   get "/workspaces/*path", %{ layer: :services, accept: %{ json: true } } do
     forward conn, path, "http://cache/workspaces/"
   end
@@ -62,6 +66,10 @@ defmodule Dispatcher do
   end
 
   get "/people/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://cache/people/"
+  end
+
+  patch "/people/*path", %{ layer: :services, accept: %{ json: true } } do
     forward conn, path, "http://cache/people/"
   end
 

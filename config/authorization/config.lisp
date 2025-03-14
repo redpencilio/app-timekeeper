@@ -76,7 +76,8 @@
     -> "foaf:name"
     -> "foaf:account"
     -> "dct:created"
-    -> "dct:modified")
+    -> "dct:modified"
+    <- "ext:taskVisibleTo")
   ("foaf:OnlineAccount"
     -> "foaf:accountName"
     -> "foaf:accountServiceHomepage"
@@ -143,5 +144,5 @@
        :for-allowed-group "logged-in")
 
 (grant (read write)
-       :to-graph (users)
+       :to-graph (users kimai)
        :for-allowed-group "admin")

@@ -84,6 +84,11 @@
           "predicate": "prov:wasAttributedTo",
           "target": "customer",
           "cardinality": "one"
+        },
+        "visible-to": {
+          "predicate": "ext:taskVisibleTo",
+          "target": "person",
+          "cardinality": "many"
         }
       },
       "features": ["include-uri"],
