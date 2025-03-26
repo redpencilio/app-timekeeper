@@ -44,7 +44,9 @@
   :cal "http://www.w3.org/2002/12/cal/ical#"
   :foaf "http://xmlns.com/foaf/0.1/"
   :dct "http://purl.org/dc/terms/"
-  :prov "http://www.w3.org/ns/prov#")
+  :prov "http://www.w3.org/ns/prov#"
+  :qudt "http://qudt.org/schema/qudt/"
+  :tempo "http://purl.org/tempo/")
 
 
 ;;;;;;;;;
@@ -61,6 +63,14 @@
   ("skos:Collection" -> _)
   ("foaf:Person" -> _)
   ("foaf:OnlineAccount" -> _))
+
+(define-graph timesheet-admin ("http://mu.semte.ch/graphs/redpencil")
+  ("qudt:Quantity"
+    -> "qudt:maxInclusive"
+    -> "prov:wasAssociatedWith"
+    -> "qudt:hasQuantityKind"
+    -> "tempo:validFrom"
+    -> "tempo:validTo"))
 
 (define-graph static ("http://mu.semte.ch/graphs/redpencil")
   ("skos:ConceptScheme" -> _)
@@ -139,9 +149,9 @@
        :for-allowed-group "employee")
 
 (grant (read)
-       :to-graph (static kimai users)
+       :to-graph (static kimai users timesheet-admin)
        :for-allowed-group "logged-in")
 
 (grant (read write)
-       :to-graph (users)
+       :to-graph (users timesheet-admin)
        :for-allowed-group "admin")
