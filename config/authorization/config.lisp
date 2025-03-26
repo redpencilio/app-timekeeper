@@ -65,7 +65,7 @@
 
 (define-graph timesheet-admin ("http://mu.semte.ch/graphs/redpencil")
   ("qudt:Quantity"
-    -> "qudt:value"
+    -> "qudt:maxInclusive"
     -> "prov:wasAssociatedWith"
     -> "qudt:hasQuantityKind"
     -> "tempo:validFrom"
