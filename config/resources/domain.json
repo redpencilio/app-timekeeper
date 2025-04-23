@@ -12,7 +12,9 @@
     "dct": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "ui": "http://www.w3.org/ns/ui#",
-    "time": "http://www.w3.org/2006/time#"
+    "time": "http://www.w3.org/2006/time#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "tempo": "http://purl.org/tempo/"
   },
   "resources": {
     "customers": {
@@ -190,6 +192,38 @@
       },
       "features": ["include-uri"],
       "new-resource-base": "http://timekeeper.redpencil.io/timesheets/"
+    },
+    "quantities": {
+      "name": "quantity",
+      "class": "qudt:Quantity",
+      "attributes": {
+        "value": {
+          "type": "string",
+          "predicate": "qudt:maxInclusive"
+        },
+        "valid-from": {
+          "type": "date",
+          "predicate": "tempo:validFrom"
+        },
+        "valid-till": {
+          "type": "date",
+          "predicate": "tempo:validTill"
+        }
+      },
+      "relationships": {
+        "person": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "person",
+          "cardinality": "one"
+        },
+        "quantity-kind": {
+          "predicate": "qudt:hasQuantityKind",
+          "target": "concept",
+          "cardinality": "one"
+        }
+      },
+      "features": ["include-uri"],
+      "new-resource-base": "http://timekeeper.redpencil.io/quantities/"
     }
   }
 }
