@@ -162,5 +162,5 @@
        :for-allowed-group "logged-in")
 
 (grant (read write)
-       :to-graph (kimai users timesheet-admin)
+       :to-graph (users timesheet-admin)
        :for-allowed-group "admin")
