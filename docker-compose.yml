@@ -15,7 +15,7 @@ services:
     labels:
       - "logging=true"
   frontend:
-    image: redpencil/frontend-timekeeper:0.6.0
+    image: redpencil/frontend-timekeeper:0.7.0
     links:
       - identifier:backend
     restart: always
