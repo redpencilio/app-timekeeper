@@ -46,7 +46,8 @@
   :dct "http://purl.org/dc/terms/"
   :prov "http://www.w3.org/ns/prov#"
   :qudt "http://qudt.org/schema/qudt/"
-  :tempo "http://purl.org/tempo/")
+  :tempo "http://purl.org/tempo/"
+  :ui "http://www.w3.org/ns/ui#")
 
 
 ;;;;;;;;;
@@ -78,7 +79,14 @@
 
 (define-graph kimai ("http://mu.semte.ch/graphs/kimai")
   ("prov:Organization" -> _)
-  ("wf:Task" -> _)
+  ("wf:Task"
+    -> "rdfs:label"
+    -> "skos:inScheme"
+    -> "skos:topConceptOf"
+    -> "skos:broader"
+    -> "dct:identifier"
+    -> "ui:color"
+    -> "prov:wasAttributedTo")
   ("foaf:OnlineAccount" -> _))
 
 (define-graph users ("http://mu.semte.ch/graphs/users")
@@ -86,7 +94,8 @@
     -> "foaf:name"
     -> "foaf:account"
     -> "dct:created"
-    -> "dct:modified")
+    -> "dct:modified"
+    <- "ext:taskVisibleTo")
   ("foaf:OnlineAccount"
     -> "foaf:accountName"
     -> "foaf:accountServiceHomepage"

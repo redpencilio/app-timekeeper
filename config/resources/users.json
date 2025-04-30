@@ -36,6 +36,12 @@
           "predicate": "foaf:account",
           "target": "account",
           "cardinality": "many"
+        },
+        "tasks": {
+          "predicate": "ext:taskVisibleTo",
+          "target": "task",
+          "inverse": true,
+          "cardinality": "many"
         }
       },
       "features": ["include-uri"],

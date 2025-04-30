@@ -65,6 +65,10 @@ defmodule Dispatcher do
     forward conn, path, "http://cache/people/"
   end
 
+  patch "/people/*path", %{ layer: :services, accept: %{ json: true } } do
+    forward conn, path, "http://cache/people/"
+  end
+
   get "/user-groups/*path", %{ layer: :services, accept: %{ json: true } } do
     forward conn, path, "http://cache/user-groups/"
   end
