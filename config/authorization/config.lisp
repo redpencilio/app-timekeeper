@@ -47,6 +47,7 @@
   :prov "http://www.w3.org/ns/prov#"
   :qudt "http://qudt.org/schema/qudt/"
   :tempo "http://purl.org/tempo/"
+  :doap "http://usefulinc.com/ns/doap#"
   :ui "http://www.w3.org/ns/ui#")
 
 
@@ -87,6 +88,19 @@
     -> "dct:identifier"
     -> "ui:color"
     -> "prov:wasAttributedTo")
+  ("doap:Project"
+    -> "rdfs:label"
+    -> "skos:inScheme"
+    -> "skos:topConceptOf"
+    -> "dct:identifier"
+    -> "ui:color"
+    -> "prov:wasAttributedTo")
+  ("ext:KimaiActivity"
+    -> "rdfs:label"
+    -> "skos:inScheme"
+    -> "skos:broader"
+    -> "dct:identifier"
+    -> "ui:color")
   ("foaf:OnlineAccount" -> _))
 
 (define-graph users ("http://mu.semte.ch/graphs/users")
