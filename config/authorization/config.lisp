@@ -37,6 +37,7 @@
   :mu "http://mu.semte.ch/vocabularies/core/"
   :session "http://mu.semte.ch/vocabularies/session/"
   :ext "http://mu.semte.ch/vocabularies/ext/"
+  :rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   :rdfs "http://www.w3.org/2000/01/rdf-schema#"
   :xsd "http://www.w3.org/2001/XMLSchema#"
   :skos "http://www.w3.org/2004/02/skos/core#"
@@ -81,6 +82,8 @@
 (define-graph kimai ("http://mu.semte.ch/graphs/kimai")
   ("prov:Organization" -> _)
   ("wf:Task"
+    -> "mu:uuid"
+    -> "rdf:type"
     -> "rdfs:label"
     -> "skos:inScheme"
     -> "skos:topConceptOf"
@@ -89,6 +92,8 @@
     -> "ui:color"
     -> "prov:wasAttributedTo")
   ("doap:Project"
+    -> "mu:uuid"
+    -> "rdf:type"
     -> "rdfs:label"
     -> "skos:inScheme"
     -> "skos:topConceptOf"
@@ -96,6 +101,8 @@
     -> "ui:color"
     -> "prov:wasAttributedTo")
   ("ext:KimaiActivity"
+    -> "mu:uuid"
+    -> "rdf:type"
     -> "rdfs:label"
     -> "skos:inScheme"
     -> "skos:broader"
