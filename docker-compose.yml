@@ -1,9 +1,17 @@
+x-logging:
+  &default-logging
+  driver: "json-file"
+  options:
+    max-size: "100m"
+    max-file: "3"
+
 services:
   identifier:
     image: semtech/mu-identifier:1.10.3
     environment:
       SESSION_COOKIE_SECURE: "on"
       DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: "[{\"variables\":[],\"name\":\"public\"}]"
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
@@ -11,6 +19,7 @@ services:
     image: semtech/mu-dispatcher:2.1.0-beta.2
     volumes:
       - ./config/dispatcher:/config
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
@@ -18,6 +27,7 @@ services:
     image: redpencil/frontend-timekeeper:0.8.1
     links:
       - identifier:backend
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
@@ -25,6 +35,7 @@ services:
     image: semtech/mu-cache:2.0.2
     links:
       - resource:backend
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
@@ -34,6 +45,7 @@ services:
       CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
     volumes:
       - ./config/resources:/config
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
@@ -43,6 +55,7 @@ services:
       API_TOKEN: "your_secret_kimai_api_token_here"
       KIMAI_ENDPOINT: "https://test.kimai.redpencil.io/api"
       DEFAULT_MU_AUTH_SCOPE: "http://services.redpencil.io/timekeeper-kimai-sync-service"
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
@@ -54,6 +67,7 @@ services:
       MU_SPARQL_TIMEOUT: 600
     volumes:
       - ./config/migrations:/data/migrations
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
@@ -61,6 +75,7 @@ services:
     image: semtech/mu-delta-notifier:0.4.0
     volumes:
       - ./config/delta:/config/
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
@@ -69,6 +84,7 @@ services:
     volumes:
       - ./config/authorization/:/config/
       - ./data/authorization/:/data/
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
@@ -79,6 +95,7 @@ services:
     volumes:
       - ./data/db:/data
       - ./config/virtuoso/virtuoso.ini:/data/virtuoso.ini
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
@@ -87,6 +104,7 @@ services:
     environment:
       USERS_GRAPH: "http://mu.semte.ch/graphs/users"
       SESSIONS_GRAPH: "http://mu.semte.ch/graphs/sessions"
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
@@ -95,6 +113,7 @@ services:
     environment:
       USERS_GRAPH: "http://mu.semte.ch/graphs/users"
       SESSIONS_GRAPH: "http://mu.semte.ch/graphs/sessions"
+    logging: *default-logging
     restart: always
     labels:
       - "logging=true"
