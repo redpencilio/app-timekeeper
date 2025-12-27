@@ -1,0 +1,38 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX cal: <http://www.w3.org/2002/12/cal/ical#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/redpencil> {
+     ?s ?p ?o .
+     }
+} INSERT {
+  GRAPH ?g {
+    ?s ?p ?o .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/redpencil> {
+    ?s a skos:Collection .
+    ?s ?p ?o .
+    ?s prov:wasAssociatedWith ?employee .
+  }
+  ?employee mu:uuid ?employeeId .
+  BIND(IRI(CONCAT("http://mu.semte.ch/graphs/employees/", ?employeeId)) AS ?g)
+};
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/redpencil> {
+     ?s ?p ?o .
+     }
+} INSERT {
+  GRAPH ?g { 
+    ?s ?p ?o .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/redpencil> {
+    ?s a cal:Vevent .
+    ?s ?p ?o .
+    ?s prov:wasAssociatedWith ?employee .
+  }
+  ?employee mu:uuid ?employeeId .
+  BIND(IRI(CONCAT("http://mu.semte.ch/graphs/employees/", ?employeeId)) AS ?g)
+}
