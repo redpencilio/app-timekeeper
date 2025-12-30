@@ -1,0 +1,59 @@
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX ical: <http://www.w3.org/2002/12/cal/ical#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX wf: <http://www.w3.org/2005/01/wf/flow#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/redpencil> {
+    ?workLogUri a ical:Vevent ;
+      mu:uuid ?workLogId ;
+      ical:duration "PT8H" ;
+      dct:subject ?task ;
+      prov:wasAssociatedWith ?employee ;
+      ical:dtstart ?date .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/kimai> {
+    ?task a wf:Task ;
+      rdfs:label "Public holiday" .
+  }
+  GRAPH <http://mu.semte.ch/graphs/users> {
+    ?employee a foaf:Person ;
+              foaf:name ?name .
+    <http://mu.semte.ch/user-groups/employee> foaf:member ?employee .
+    FILTER (
+            !CONTAINS(?name, "Karel")
+            && !CONTAINS(?name, "Tom")
+            && !CONTAINS(?name, "Óscar")
+            && !CONTAINS(?name, "Boris")
+            && !CONTAINS(?name, "Felix")
+            && !CONTAINS(?name, "Johan")
+            && !CONTAINS(?name, "Niels")
+            && !CONTAINS(?name, "Aad")
+            && !CONTAINS(?name, "Erika")
+            )
+  }
+  VALUES ?date {
+    "2026-01-01"^^xsd:date
+    "2026-04-06"^^xsd:date
+    "2026-05-01"^^xsd:date
+    "2026-05-14"^^xsd:date
+    "2026-05-25"^^xsd:date
+    "2026-07-21"^^xsd:date
+    "2026-11-11"^^xsd:date
+    "2026-12-25"^^xsd:date
+  }
+  FILTER NOT EXISTS {
+    ?existingWorkLog a ical:Vevent ;
+      ical:dtstart ?date ;
+      prov:wasAssociatedWith ?employee .
+  }
+  BIND (LCASE(STRUUID()) AS ?workLogId)
+  BIND (URI(CONCAT("http://timekeeper.redpencil.io/work-logs/", ?workLogId)) AS ?workLogUri)
+}
