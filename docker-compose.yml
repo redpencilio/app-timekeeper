@@ -24,7 +24,7 @@ services:
     labels:
       - "logging=true"
   frontend:
-    image: redpencil/frontend-timekeeper:0.8.1
+    image: redpencil/frontend-timekeeper:0.9.0
     links:
       - identifier:backend
     logging: *default-logging
@@ -50,7 +50,7 @@ services:
     labels:
       - "logging=true"
   kimai-sync:
-    image: redpencil/timekeeper-kimai-sync-service:0.3.4
+    image: redpencil/timekeeper-kimai-sync-service:0.3.5
     environment:
       API_TOKEN: "your_secret_kimai_api_token_here"
       KIMAI_ENDPOINT: "https://test.kimai.redpencil.io/api"
