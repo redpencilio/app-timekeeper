@@ -75,7 +75,7 @@
     -> "tempo:validFrom"
     -> "tempo:validTo"))
 
-(define-graph static ("http://mu.semte.ch/graphs/redpencil")
+(define-graph static ("http://mu.semte.ch/graphs/public")
   ("skos:ConceptScheme" -> _)
   ("skos:Concept" -> _))
 

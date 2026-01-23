@@ -1,0 +1,16 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/redpencil> {
+    ?s ?p ?o.
+  }
+} INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?s ?p ?o.
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/redpencil> {
+    VALUES ?type { skos:ConceptScheme skos:Concept }
+    ?s a ?type; ?p ?o.
+  }
+}
