@@ -1,7 +1,5 @@
 services:
   identifier:
-    ports:
-      - "80:80"
     restart: "no"
   dispatcher:
     restart: "no"
@@ -26,6 +24,4 @@ services:
   database:
     restart: "no"
   triplestore:
-    ports:
-      - "8890:8890"
     restart: "no"
