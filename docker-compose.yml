@@ -24,7 +24,7 @@ services:
     labels:
       - "logging=true"
   frontend:
-    image: redpencil/frontend-timekeeper:0.10.1
+    image: redpencil/frontend-timekeeper:0.10.2
     links:
       - identifier:backend
     logging: *default-logging
